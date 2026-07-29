@@ -25,6 +25,9 @@ main:
 
   - title: "Notes"
     url: https://notenextra.trance-0.com
+
+  - title: "Blog"
+    url: https://blog.trance-0.com
     
   - title: "CV"
     url: /cv-json/
