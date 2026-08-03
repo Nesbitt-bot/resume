@@ -1,0 +1,130 @@
+'use client';
+
+import Link from 'next/link';
+import { Check, ChevronDown, Copy, ExternalLink, MapPin, Presentation, Route } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { useState } from 'react';
+import type { Presentation as Talk, Project, QAItem, SiteData, SkillSemester } from '@/lib/types';
+
+export function TalksArchiveClient({ talks }: { talks: Talk[] }) {
+  return (
+    <div className="talks-archive">
+      {talks.map((talk, index) => (
+        <motion.article key={talk.name} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <div className="talk-date"><span>{talk.date.slice(0, 4)}</span><small>{talk.date}</small></div>
+          <div className="talk-body">
+            <p className="eyebrow"><Presentation size={14} /> {talk.event}</p>
+            <h2>{talk.name}</h2>
+            {talk.location && <p className="talk-location"><MapPin size={14} /> {talk.location}</p>}
+            {talk.description && <p>{talk.description}</p>}
+            <div className="talk-footer">
+              <div className="tag-row compact">{talk.skills?.map((skill) => <span key={skill}>{skill}</span>)}</div>
+              {talk.url && <a href={localizeFile(talk.url)} target="_blank" rel="noreferrer">Open resource <ExternalLink size={13} /></a>}
+            </div>
+          </div>
+          <span className="talk-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+        </motion.article>
+      ))}
+    </div>
+  );
+}
+
+function localizeFile(url: string) {
+  const match = url.match(/\/files\/([^/]+\.pdf)$/i);
+  return match ? `/files/${match[1]}` : url;
+}
+
+interface PathwayProps {
+  pathways: SiteData['pathways'];
+  projects: Project[];
+  semesters: SkillSemester[];
+}
+
+export function PathwaysClient({ pathways, projects, semesters }: PathwayProps) {
+  const [open, setOpen] = useState(0);
+  const courses = semesters.flatMap((semester) => semester.courses.map((course) => ({ ...course, semester: semester.semesters })));
+
+  return (
+    <div className="pathways">
+      {pathways.map((pathway, index) => {
+        const expanded = open === index;
+        const relatedProjects = projects.filter((project) => pathway.topics.some((topic) => project.topicCategory?.includes(topic) || project['job-tags']?.includes(topic.toLowerCase().replaceAll(' ', '-'))));
+        const relatedCourses = courses.filter((course) => pathway.topics.some((topic) => topic === 'Mathematics' ? course.category?.[0] === 'Mathematics' : course.category?.includes(topic)));
+        return (
+          <section key={pathway.title} className={expanded ? 'pathway is-open' : 'pathway'}>
+            <button type="button" onClick={() => setOpen(expanded ? -1 : index)} aria-expanded={expanded}>
+              <span className="pathway-number">0{index + 1}</span>
+              <span><strong>{pathway.title}</strong><small>{pathway.description}</small></span>
+              <ChevronDown size={21} />
+            </button>
+            <AnimatePresence initial={false}>
+              {expanded && (
+                <motion.div className="pathway-panel" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}>
+                  <div className="pathway-columns">
+                    <div>
+                      <p className="eyebrow">Projects · {relatedProjects.length}</p>
+                      {relatedProjects.slice(0, 8).map((project) => (
+                        <Link key={project.name} href={`/portfolio/#${project.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}><Route size={15} /><span><strong>{project.name}</strong><small>{project.tldr}</small></span></Link>
+                      ))}
+                    </div>
+                    <div>
+                      <p className="eyebrow">Coursework · {relatedCourses.length}</p>
+                      {relatedCourses.slice(0, 10).map((course) => (
+                        <Link key={`${course.name}-${course.semester}`} href="/skills/#course-archive"><span><strong>{course.name}</strong><small>{course.semester} · {course.level}</small></span></Link>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </section>
+        );
+      })}
+    </div>
+  );
+}
+
+export function QAListClient({ items, updated }: { items: QAItem[]; updated?: string }) {
+  return (
+    <div className="qa-list">
+      {updated && <p className="qa-updated">Last updated {updated}</p>}
+      {items.map((item, index) => <QAEntry key={item.question} item={item} index={index} />)}
+    </div>
+  );
+}
+
+function QAEntry({ item, index }: { item: QAItem; index: number }) {
+  const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  async function copy() {
+    await navigator.clipboard.writeText(item.answer);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1400);
+  }
+  return (
+    <section className="qa-entry">
+      <button className="qa-question" type="button" onClick={() => setOpen((value) => !value)} aria-expanded={open}>
+        <span>Q{String(index + 1).padStart(2, '0')}</span><strong>{item.question}</strong><ChevronDown size={20} />
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div className="qa-answer" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}>
+            <button type="button" onClick={copy}>{copied ? <Check size={15} /> : <Copy size={15} />}{copied ? 'Copied' : 'Copy answer'}</button>
+            {item.answer.split(/\n\n+/).map((paragraph) => <p key={paragraph.slice(0, 48)}>{paragraph}</p>)}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
+
+export function SitemapGridClient({ navigation }: { navigation: SiteData['navigation'] }) {
+  return (
+    <div className="sitemap-grid">
+      {navigation.map((item, index) => (
+        <Link key={item.href} href={item.href}><span>0{index + 1}</span><strong>{item.label}</strong><ExternalLink size={15} /></Link>
+      ))}
+      <Link href="/terms/"><span>{String(navigation.length + 1).padStart(2, '0')}</span><strong>Terms and privacy</strong><ExternalLink size={15} /></Link>
+    </div>
+  );
+}

@@ -1,0 +1,62 @@
+---
+title: ATTPDRL
+order: 4
+category: Deep Reinforcement Learning, Autonomous Vehicles
+topicCategory:
+  - Computer Science
+  - Deep Reinforcement Learning
+date: Nov 2025 - Dec 2025
+skills:
+  - Deep Reinforcement Learning
+  - PyTorch
+  - DQN
+  - PPO
+  - DDPG
+  - Python
+links:
+  - label: GitHub
+    url: https://github.com/Trance-0/ATTPDRL
+star:
+  situation: Trailer trucks have nonlinear articulated dynamics that make steering and parking in constrained spaces substantially harder than controlling standard cars.
+  task: Design a trajectory-free simulation environment and evaluate whether deep reinforcement learning could steer a trailer truck while avoiding collisions and jackknifing.
+  action: I modeled the vehicle kinematics, implemented the environment with Gymnasium, Shapely, and Pygame, compared DQN, PPO, and DDPG, and ran reward-function ablations.
+  result: DQN converged around 400,000 steps for forward driving and 800,000 steps for backward driving, but the 90-degree steering task still failed after 5 million steps, showing the limits of the trajectory-free reward design.
+tldr: A trailer-truck reinforcement-learning simulator where DQN learned straight forward and backward control but exposed the limits of trajectory-free steering rewards.
+highlights:
+  - "Served as the final project for CSE 5100: Deep Reinforcement Learning."
+  - Modeled trailer-truck steering in a Gymnasium environment using Shapely and Pygame, and compared DQN, PPO, and DDPG in trajectory-free scenarios.
+  - DQN converged after about 400,000 steps for forward driving and 800,000 steps for backward driving, but failed to solve the 90-degree steering task after 5 million steps.
+jobTags:
+  - machine-learning
+  - algorithm
+  - data-analysis
+  - robotics
+---
+
+## Overview
+
+A trailer-truck reinforcement-learning simulator where DQN learned straight forward and backward control but exposed the limits of trajectory-free steering rewards.
+
+## Highlights
+
+- Served as the final project for CSE 5100: Deep Reinforcement Learning.
+- Modeled trailer-truck steering in a Gymnasium environment using Shapely and Pygame, and compared DQN, PPO, and DDPG in trajectory-free scenarios.
+- DQN converged after about 400,000 steps for forward driving and 800,000 steps for backward driving, but failed to solve the 90-degree steering task after 5 million steps.
+
+## Project narrative
+
+### Situation
+
+Trailer trucks have nonlinear articulated dynamics that make steering and parking in constrained spaces substantially harder than controlling standard cars.
+
+### Task
+
+Design a trajectory-free simulation environment and evaluate whether deep reinforcement learning could steer a trailer truck while avoiding collisions and jackknifing.
+
+### Action
+
+I modeled the vehicle kinematics, implemented the environment with Gymnasium, Shapely, and Pygame, compared DQN, PPO, and DDPG, and ran reward-function ablations.
+
+### Result
+
+DQN converged around 400,000 steps for forward driving and 800,000 steps for backward driving, but the 90-degree steering task still failed after 5 million steps, showing the limits of the trajectory-free reward design.
