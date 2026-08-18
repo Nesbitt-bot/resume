@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { Check, ChevronDown, Copy, ExternalLink, MapPin, Presentation, Route } from 'lucide-react';
+import { BookOpen, Check, ChevronDown, Copy, ExternalLink, MapPin, Presentation, Route } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
 import type { Presentation as Talk, Project, QAItem, SiteData, SkillSemester } from '@/lib/types';
+import { courseAnchor } from '@/lib/slug';
 
 export function TalksArchiveClient({ talks }: { talks: Talk[] }) {
   return (
@@ -40,16 +41,31 @@ interface PathwayProps {
   semesters: SkillSemester[];
 }
 
+interface ResolvedPathwayItem {
+  type: 'project' | 'course';
+  title: string;
+  description?: string;
+  href: string;
+}
+
 export function PathwaysClient({ pathways, projects, semesters }: PathwayProps) {
   const [open, setOpen] = useState(0);
-  const courses = semesters.flatMap((semester) => semester.courses.map((course) => ({ ...course, semester: semester.semesters })));
 
   return (
     <div className="pathways">
       {pathways.map((pathway, index) => {
         const expanded = open === index;
-        const relatedProjects = projects.filter((project) => pathway.topics.some((topic) => project.topicCategory?.includes(topic) || project['job-tags']?.includes(topic.toLowerCase().replaceAll(' ', '-'))));
-        const relatedCourses = courses.filter((course) => pathway.topics.some((topic) => topic === 'Mathematics' ? course.category?.[0] === 'Mathematics' : course.category?.includes(topic)));
+        const relatedItems = pathway.items.reduce<ResolvedPathwayItem[]>((items, selection) => {
+          if (selection.type === 'project') {
+            const project = projects.find((item) => item.slug === selection.slug);
+            if (project) items.push({ type: 'project', title: project.name, description: project.tldr, href: `/projects/${project.slug}/` });
+            return items;
+          }
+          const semester = semesters.find((item) => item.semesters === selection.semester);
+          const course = semester?.courses.find((item) => item.name === selection.course);
+          if (course) items.push({ type: 'course', title: course.name, description: `${selection.semester} · ${course.level ?? 'Course'}`, href: `/skills/#${courseAnchor(selection.semester, course.name)}` });
+          return items;
+        }, []);
         return (
           <section key={pathway.title} className={expanded ? 'pathway is-open' : 'pathway'}>
             <button type="button" onClick={() => setOpen(expanded ? -1 : index)} aria-expanded={expanded}>
@@ -60,19 +76,14 @@ export function PathwaysClient({ pathways, projects, semesters }: PathwayProps) 
             <AnimatePresence initial={false}>
               {expanded && (
                 <motion.div className="pathway-panel" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}>
-                  <div className="pathway-columns">
-                    <div>
-                      <p className="eyebrow">Projects · {relatedProjects.length}</p>
-                      {relatedProjects.slice(0, 8).map((project) => (
-                        <Link key={project.name} href={`/portfolio/#${project.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}><Route size={15} /><span><strong>{project.name}</strong><small>{project.tldr}</small></span></Link>
-                      ))}
-                    </div>
-                    <div>
-                      <p className="eyebrow">Coursework · {relatedCourses.length}</p>
-                      {relatedCourses.slice(0, 10).map((course) => (
-                        <Link key={`${course.name}-${course.semester}`} href="/skills/#course-archive"><span><strong>{course.name}</strong><small>{course.semester} · {course.level}</small></span></Link>
-                      ))}
-                    </div>
+                  <div className="pathway-list">
+                    <p className="eyebrow">Connected work · {relatedItems.length}</p>
+                    {relatedItems.map((item) => (
+                      <Link key={`${item.type}-${item.href}`} href={item.href}>
+                        {item.type === 'project' ? <Route size={15} /> : <BookOpen size={15} />}
+                        <span><strong>{item.title}</strong><small><b>{item.type}</b>{item.description ? ` · ${item.description}` : ''}</small></span>
+                      </Link>
+                    ))}
                   </div>
                 </motion.div>
               )}

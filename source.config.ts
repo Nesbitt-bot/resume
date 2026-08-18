@@ -57,10 +57,21 @@ export const siteSettings = defineCollections({
       description: z.string(),
       topics: z.array(z.string()),
     })),
+  }),
+});
+
+export const pathwaySettings = defineCollections({
+  type: 'doc',
+  dir: 'content/pathways',
+  schema: z.object({
+    title: z.string(),
     pathways: z.array(z.object({
       title: z.string(),
       description: z.string(),
-      topics: z.array(z.string()),
+      items: z.array(z.discriminatedUnion('type', [
+        z.object({ type: z.literal('project'), slug: z.string() }),
+        z.object({ type: z.literal('course'), semester: z.string(), course: z.string() }),
+      ])),
     })),
   }),
 });

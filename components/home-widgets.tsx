@@ -2,27 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Code2, FlaskConical, GraduationCap, Mail } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
 import type { Project, SiteData } from '@/lib/types';
 
-interface HomeHeroProps {
-  site: SiteData;
-  stats: { projects: number; courses: number; talks: number; fields: number };
-}
-
-export function HomeHeroClient({ site, stats }: HomeHeroProps) {
-  const facts = [
-    { value: stats.projects, label: 'projects', icon: Code2 },
-    { value: stats.courses, label: 'courses', icon: BookOpen },
-    { value: stats.talks, label: 'talks', icon: GraduationCap },
-    { value: stats.fields, label: 'fields', icon: FlaskConical },
-  ];
-
+export function HomeHeroClient({ site }: { site: SiteData }) {
   return (
-    <>
-      <section className="hero-section">
+    <section className="hero-section">
         <div className="hero-pattern" aria-hidden="true">
           <span /><span /><span /><span /><span />
         </div>
@@ -55,26 +42,7 @@ export function HomeHeroClient({ site, stats }: HomeHeroProps) {
             <div className="portrait-note note-two"><span>{site.hero.notes[1]?.label}</span>{site.hero.notes[1]?.value}</div>
           </motion.div>
         </div>
-      </section>
-
-      <section className="stats-band" aria-label="Resume statistics">
-        <div className="page-container stats-grid">
-          {facts.map(({ value, label, icon: Icon }, index) => (
-            <motion.div
-              key={label}
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ delay: index * 0.06 }}
-            >
-              <Icon size={19} />
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-    </>
+    </section>
   );
 }
 

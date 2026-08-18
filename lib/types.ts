@@ -134,6 +134,9 @@ export interface SiteData {
   pathways: Array<{
     title: string;
     description: string;
-    topics: string[];
+    items: Array<
+      | { type: 'project'; slug: string }
+      | { type: 'course'; semester: string; course: string }
+    >;
   }>;
 }

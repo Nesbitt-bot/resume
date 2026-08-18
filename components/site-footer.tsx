@@ -8,11 +8,10 @@ export function SiteFooter({ site }: { site: SiteData }) {
       <div className="page-container footer-grid">
         <div>
           <h2>{site.name}</h2>
-          <p>{site.descriptor}</p>
         </div>
         <div>
           <h3>Explore</h3>
-          {site.navigation.slice(1, 5).map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
+          {site.navigation.slice(0, 4).map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
         </div>
         <div>
           <h3>Connect</h3>

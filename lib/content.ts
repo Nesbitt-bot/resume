@@ -2,6 +2,7 @@ import {
   education as educationDocuments,
   experience as experienceDocuments,
   profile as profileDocuments,
+  pathwaySettings as pathwayDocuments,
   projects as projectDocuments,
   qaSettings as qaSettingsDocuments,
   questions as questionDocuments,
@@ -10,6 +11,9 @@ import {
   talks as talkDocuments,
 } from 'collections/server';
 import type { ResumeData, SiteData } from '@/lib/types';
+import { slugify } from '@/lib/slug';
+
+export { slugify } from '@/lib/slug';
 
 function first<T>(items: T[], label: string): T {
   const item = items[0];
@@ -22,6 +26,7 @@ function byOrder<T extends { order: number }>(items: T[]) {
 }
 
 const siteDocument = first(siteDocuments, 'content/site/index.mdx');
+const pathwayDocument = first(pathwayDocuments, 'content/pathways/index.mdx');
 const profileDocument = first(profileDocuments, 'content/resume/profile/index.mdx');
 const qaDocument = first(qaSettingsDocuments, 'content/resume/qa-settings/index.mdx');
 
@@ -34,7 +39,7 @@ export const site: SiteData = {
   navigation: siteDocument.navigation,
   profiles: siteDocument.profiles,
   inquiries: siteDocument.inquiries,
-  pathways: siteDocument.pathways,
+  pathways: pathwayDocument.pathways,
 };
 
 export const resume: ResumeData = {
@@ -109,15 +114,6 @@ export const resume: ResumeData = {
   },
 };
 
-export function slugify(value: string) {
-  return value
-    .toLowerCase()
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
-}
-
 export function formatDateRange(start: string, end?: string) {
   const format = (value: string) => {
     if (/^(present|current)$/i.test(value)) return 'Present';
@@ -131,14 +127,3 @@ export function formatDateRange(start: string, end?: string) {
   };
   return end ? `${format(start)} – ${format(end)}` : format(start);
 }
-
-export const resumeStats = {
-  projects: resume.portfolio.length,
-  courses: resume.skills.reduce((sum, semester) => sum + semester.courses.length, 0),
-  talks: resume.presentations.length,
-  fields: new Set(
-    resume.skills.flatMap((semester) =>
-      semester.courses.map((course) => course.category?.[0]).filter(Boolean),
-    ),
-  ).size,
-};

@@ -18,24 +18,31 @@ export function SiteHeader({ site }: { site: SiteData }) {
 
   return (
     <header className="site-header">
-      <div className="utility-bar">
-        <div className="page-container utility-inner">
-          <span>{site.descriptor}</span>
-          <div className="utility-links">
-            {site.profiles.map((profile) => (
-              <a key={profile.href} href={profile.href} target="_blank" rel="noreferrer">
-                {profile.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-
       <div className="identity-bar page-container">
-        <div className="identity-copy">
-          <Link href="/" className="identity-mark" aria-label={`${site.name} home`}>{site.name}</Link>
-          <small>{site.descriptor}</small>
-        </div>
+        <Link href="/" className="identity-mark" aria-label={`${site.name} home`}>{site.name}</Link>
+
+        <nav id="primary-navigation" className={open ? 'primary-nav is-open' : 'primary-nav'} aria-label="Primary navigation">
+          <div className="nav-inner">
+            <div className="nav-primary-links">
+              {site.navigation.map((item) => {
+                const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+                return (
+                  <Link key={item.href} href={item.href} aria-current={active ? 'page' : undefined} onClick={() => setOpen(false)}>
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="nav-profile-links" aria-label="Profile links">
+              {site.profiles.map((profile) => (
+                <a key={profile.href} href={profile.href} target="_blank" rel="noreferrer">
+                  {profile.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </nav>
+
         <div className="header-actions">
           <button className="icon-button" type="button" onClick={toggleTheme} aria-label="Toggle color theme">
             <Moon className="theme-icon-light" size={19} />
@@ -53,19 +60,6 @@ export function SiteHeader({ site }: { site: SiteData }) {
           </button>
         </div>
       </div>
-
-      <nav id="primary-navigation" className={open ? 'primary-nav is-open' : 'primary-nav'} aria-label="Primary navigation">
-        <div className="page-container nav-inner">
-          {site.navigation.map((item) => {
-            const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
-            return (
-              <Link key={item.href} href={item.href} aria-current={active ? 'page' : undefined} onClick={() => setOpen(false)}>
-                {item.label}
-              </Link>
-            );
-          })}
-        </div>
-      </nav>
     </header>
   );
 }

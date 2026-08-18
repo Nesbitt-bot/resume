@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
 import type { MDXComponents } from 'mdx/types';
-import { resume, resumeStats, site } from '@/lib/content';
+import { resume, site } from '@/lib/content';
 import { HomeHeroClient, InquiryTabsClient, FeaturedProjectsClient } from '@/components/home-widgets';
 import { PortfolioExplorerClient } from '@/components/portfolio-explorer';
 import { ResumeViewClient } from '@/components/resume-view';
@@ -19,7 +19,7 @@ function SmartLink({ href = '', children, ...props }: React.AnchorHTMLAttributes
 }
 
 function HomeHero() {
-  return <HomeHeroClient site={site} stats={resumeStats} />;
+  return <HomeHeroClient site={site} />;
 }
 
 function InquiryTabs() {

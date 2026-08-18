@@ -4,7 +4,8 @@ All routine content editing happens in this directory. Every content source is M
 
 ## Directory map
 
-- `site/index.mdx` — identity, navigation, profile links, homepage hero, inquiry tabs, and pathways
+- `site/index.mdx` — identity, navigation, profile links, homepage hero, and inquiry tabs
+- `pathways/index.mdx` — explicitly selected, ordered projects and courses for each homepage pathway
 - `pages/*.mdx` — page titles, descriptions, prose, headings, and widget placement
 - `resume/profile/index.mdx` — contact details, profile links, and languages
 - `resume/education/*.mdx` — one degree per file
@@ -20,6 +21,8 @@ All routine content editing happens in this directory. Every content source is M
 Copy a neighboring MDX file in the appropriate directory, give it the next numeric filename prefix, and update its frontmatter. The `order` field controls display order independently of the filename. A production build reports a clear validation error if a required field is missing or malformed.
 
 Project URLs are generated from their `title`. Portfolio cards automatically link to the Markdown body in the matching project file, so no route code is needed when adding a project.
+
+Pathway entries are never inferred from broad categories. Edit `pathways/index.mdx` and add either a project `slug` or an exact course `semester` and `course` name to control the unified lists.
 
 Page files use ordinary Markdown. Existing component tags such as `<PortfolioExplorer />` and `<SkillAtlas />` insert interactive widgets; move or remove a tag only when you want to change the page composition.
 

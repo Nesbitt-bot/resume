@@ -13,6 +13,7 @@ import {
 import { BookOpen, ChevronDown, Maximize2, Minimize2, Search } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { ResumeData, SkillSemester } from '@/lib/types';
+import { courseAnchor } from '@/lib/slug';
 
 type Month = number | 'PRESENT';
 type ItemKind = 'education' | 'work' | 'course' | 'course-grad' | 'portfolio' | 'presentation';
@@ -312,6 +313,17 @@ export function SkillAtlasClient({ resume }: { resume: ResumeData }) {
 export function CourseArchiveClient({ semesters }: { semesters: SkillSemester[] }) {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(semesters[0]?.semesters ?? '');
+  useEffect(() => {
+    const target = decodeURIComponent(window.location.hash.slice(1));
+    if (!target.startsWith('course-')) return;
+    const semester = semesters.find((item) => item.courses.some((course) => courseAnchor(item.semesters, course.name) === target));
+    if (!semester) return;
+    const timer = window.setTimeout(() => {
+      setOpen(semester.semesters);
+      window.requestAnimationFrame(() => window.requestAnimationFrame(() => document.getElementById(target)?.scrollIntoView({ block: 'center' })));
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [semesters]);
   const needle = query.trim().toLowerCase();
   const filtered = semesters.map((semester) => ({ ...semester, courses: semester.courses.filter((course) => !needle || [course.name, course.level, course.description, course.tags?.join(' ')].join(' ').toLowerCase().includes(needle)) })).filter((semester) => semester.courses.length > 0);
   return (
@@ -320,7 +332,7 @@ export function CourseArchiveClient({ semesters }: { semesters: SkillSemester[] 
       <div className="semester-list">
         {filtered.map((semester) => {
           const expanded = open === semester.semesters || Boolean(query);
-          return <section key={semester.semesters} className="semester-group"><button type="button" aria-expanded={expanded} onClick={() => setOpen(expanded ? '' : semester.semesters)}><span><small>{semester.courses.length} courses</small><strong>{semester.semesters}</strong></span><ChevronDown size={19} /></button>{expanded && <div className="course-grid">{semester.courses.map((course) => <article key={course.name}><BookOpen size={17} /><div><h3>{course.name}</h3><p>{course.level}</p>{course.description && <small>{course.description}</small>}<div className="tag-row compact">{course.tags?.slice(0, 4).map((tag) => <span key={tag}>{tag}</span>)}</div></div></article>)}</div>}</section>;
+          return <section key={semester.semesters} className="semester-group"><button type="button" aria-expanded={expanded} onClick={() => setOpen(expanded ? '' : semester.semesters)}><span><small>{semester.courses.length} courses</small><strong>{semester.semesters}</strong></span><ChevronDown size={19} /></button>{expanded && <div className="course-grid">{semester.courses.map((course) => <article id={courseAnchor(semester.semesters, course.name)} key={course.name}><BookOpen size={17} /><div><h3>{course.name}</h3><p>{course.level}</p>{course.description && <small>{course.description}</small>}<div className="tag-row compact">{course.tags?.slice(0, 4).map((tag) => <span key={tag}>{tag}</span>)}</div></div></article>)}</div>}</section>;
         })}
       </div>
     </section>
