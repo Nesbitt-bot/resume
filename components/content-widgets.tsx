@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { BookOpen, Check, ChevronDown, Copy, ExternalLink, MapPin, Presentation, Route } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
+import type { ReactNode } from 'react';
 import type { Presentation as Talk, Project, QAItem, SiteData, SkillSemester } from '@/lib/types';
 import { courseAnchor } from '@/lib/slug';
 
@@ -104,11 +105,46 @@ export function QAListClient({ items, updated }: { items: QAItem[]; updated?: st
   );
 }
 
+function renderInlineMarkdown(text: string): ReactNode[] {
+  const nodes: ReactNode[] = [];
+  const pattern = /(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g;
+  let lastIndex = 0;
+  let key = 0;
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index));
+    const token = match[0];
+    if (token.startsWith('**')) {
+      nodes.push(<strong key={key++}>{token.slice(2, -2)}</strong>);
+    } else {
+      const link = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+      if (link) {
+        const label = link[1];
+        const href = link[2];
+        nodes.push(/^(https?:)?\/\//.test(href)
+          ? <a key={key++} href={href} target="_blank" rel="noreferrer">{label}</a>
+          : <Link key={key++} href={href}>{label}</Link>);
+      } else {
+        nodes.push(token);
+      }
+    }
+    lastIndex = pattern.lastIndex;
+  }
+  if (lastIndex < text.length) nodes.push(text.slice(lastIndex));
+  return nodes;
+}
+
+function stripInlineMarkdown(text: string) {
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
+}
+
 function QAEntry({ item, index }: { item: QAItem; index: number }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   async function copy() {
-    await navigator.clipboard.writeText(item.answer);
+    await navigator.clipboard.writeText(stripInlineMarkdown(item.answer));
     setCopied(true);
     window.setTimeout(() => setCopied(false), 1400);
   }
@@ -121,7 +157,7 @@ function QAEntry({ item, index }: { item: QAItem; index: number }) {
         {open && (
           <motion.div className="qa-answer" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}>
             <button type="button" onClick={copy}>{copied ? <Check size={15} /> : <Copy size={15} />}{copied ? 'Copied' : 'Copy answer'}</button>
-            {item.answer.split(/\n\n+/).map((paragraph) => <p key={paragraph.slice(0, 48)}>{paragraph}</p>)}
+            {item.answer.split(/\n\n+/).map((paragraph) => <p key={paragraph.slice(0, 48)}>{renderInlineMarkdown(paragraph)}</p>)}
           </motion.div>
         )}
       </AnimatePresence>
