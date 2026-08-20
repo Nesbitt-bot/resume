@@ -1,0 +1,62 @@
+---
+title: ImGenHCT
+order: 19
+category: Computer Vision, Image Generation
+topicCategory:
+  - Computer Science
+  - Computer Vision
+date: Nov 2025 - Dec 2025
+skills:
+  - Computer Vision
+  - Image Generation
+  - TiTok
+  - CLIP
+  - PyTorch
+  - Python
+links:
+  - label: GitHub
+    url: https://github.com/Trance-0/ImGenHCT
+star:
+  situation: Diffusion models provide strong image quality but require iterative denoising, while one-step generators often sacrifice fidelity.
+  task: Investigate whether highly compressed 1D TiTok image tokens could support efficient one-step text-to-image generation.
+  action: I contributed to brainstorming and design, helped fill in wherever parts were missing or needed support, tested test-time generation on home computers, created visualizations, and co-wrote the paper.
+  result: After training on 400,000 samples for 35 epochs, the model reached a 0.79 VQA score across 50 prompts with five seeds each, outperforming VQA optimization at 0.75 while generating images in one step.
+tldr: A one-step text-to-image pipeline that maps text directly into compressed 1D TiTok image tokens and reached a 0.79 VQA score.
+highlights:
+  - "Served as the final project for CSE 5519: Advances in Computer Vision."
+  - Explored highly compressed image tokenization combined with text-to-image generation, using a TiTok-style 1D tokenizer to encode images into minimal latent representations.
+  - Built an encoder-decoder pipeline that uses CLIP and VQA metrics to evaluate semantic alignment between generated images and text prompts.
+  - Trained a token-to-token model on 400,000 samples for 35 epochs; it reached a 0.79 VQA score over 50 prompts with five seeds each, compared with 0.75 for VQA-based optimization.
+jobTags:
+  - machine-learning
+  - data-analysis
+---
+
+## Overview
+
+A one-step text-to-image pipeline that maps text directly into compressed 1D TiTok image tokens and reached a 0.79 VQA score.
+
+## Highlights
+
+- Served as the final project for CSE 5519: Advances in Computer Vision.
+- Explored highly compressed image tokenization combined with text-to-image generation, using a TiTok-style 1D tokenizer to encode images into minimal latent representations.
+- Built an encoder-decoder pipeline that uses CLIP and VQA metrics to evaluate semantic alignment between generated images and text prompts.
+- Trained a token-to-token model on 400,000 samples for 35 epochs; it reached a 0.79 VQA score over 50 prompts with five seeds each, compared with 0.75 for VQA-based optimization.
+
+## Project narrative
+
+### Situation
+
+Diffusion models provide strong image quality but require iterative denoising, while one-step generators often sacrifice fidelity.
+
+### Task
+
+Investigate whether highly compressed 1D TiTok image tokens could support efficient one-step text-to-image generation.
+
+### Action
+
+I co-led the project, designed blocks of the token-to-token model, reviewed code, tested test-time generation on home computers, created visualizations, and co-wrote the paper.
+
+### Result
+
+After training on 400,000 samples for 35 epochs, the model reached a 0.79 VQA score across 50 prompts with five seeds each, outperforming VQA optimization at 0.75 while generating images in one step.

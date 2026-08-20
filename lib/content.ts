@@ -22,7 +22,7 @@ function first<T>(items: T[], label: string): T {
 }
 
 function byOrder<T extends { order: number }>(items: T[]) {
-  return [...items].sort((a, b) => a.order - b.order);
+  return [...items].sort((a, b) => b.order - a.order);
 }
 
 const siteDocument = first(siteDocuments, 'content/site/index.mdx');
