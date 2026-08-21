@@ -1,4 +1,5 @@
 import { ExternalLink, FileText, Headphones } from 'lucide-react';
+import { withBasePath } from '@/lib/base-path';
 
 interface MediaEmbedProps {
   src: string;
@@ -7,6 +8,7 @@ interface MediaEmbedProps {
 }
 
 export function MediaEmbed({ src, title, kind = 'auto' }: MediaEmbedProps) {
+  const resolvedSrc = withBasePath(src);
   const detected = kind === 'auto' ? detectKind(src) : kind;
   const video = getVideoEmbed(src);
 
@@ -20,19 +22,19 @@ export function MediaEmbed({ src, title, kind = 'auto' }: MediaEmbedProps) {
   }
 
   if (detected === 'audio') {
-    return <figure className="media-embed media-audio"><Headphones size={22} /><div><figcaption>{title}</figcaption><audio controls preload="metadata" src={src}>Your browser does not support audio playback.</audio></div></figure>;
+    return <figure className="media-embed media-audio"><Headphones size={22} /><div><figcaption>{title}</figcaption><audio controls preload="metadata" src={resolvedSrc}>Your browser does not support audio playback.</audio></div></figure>;
   }
 
   if (detected === 'pdf') {
     return (
       <figure className="media-embed media-pdf">
-        <div className="media-frame"><iframe src={`${src}#view=FitH`} title={title} loading="lazy" /></div>
-        <figcaption><FileText size={15} /> {title} <a href={src} target="_blank" rel="noreferrer">Open PDF <ExternalLink size={12} /></a></figcaption>
+        <div className="media-frame"><iframe src={`${resolvedSrc}#view=FitH`} title={title} loading="lazy" /></div>
+        <figcaption><FileText size={15} /> {title} <a href={resolvedSrc} target="_blank" rel="noreferrer">Open PDF <ExternalLink size={12} /></a></figcaption>
       </figure>
     );
   }
 
-  return <a className="media-link-card" href={src} target="_blank" rel="noreferrer"><span><small>External resource</small><strong>{title}</strong></span><ExternalLink size={18} /></a>;
+  return <a className="media-link-card" href={resolvedSrc} target="_blank" rel="noreferrer"><span><small>External resource</small><strong>{title}</strong></span><ExternalLink size={18} /></a>;
 }
 
 function detectKind(src: string): Exclude<MediaEmbedProps['kind'], 'auto'> {

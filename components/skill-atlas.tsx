@@ -12,6 +12,7 @@ import {
 } from '@xyflow/react';
 import { BookOpen, ChevronDown, Maximize2, Minimize2, Search } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { withBasePath } from '@/lib/base-path';
 import type { ResumeData, SkillSemester } from '@/lib/types';
 import { courseAnchor } from '@/lib/slug';
 
@@ -296,7 +297,7 @@ export function SkillAtlasClient({ resume }: { resume: ResumeData }) {
             const item = node.data as TimelineItem;
             const url = item.links[0]?.url;
             if (!url) return;
-            if (url.startsWith('/')) window.location.href = url; else window.open(url, '_blank', 'noopener,noreferrer');
+            if (url.startsWith('/')) window.location.href = withBasePath(url); else window.open(url, '_blank', 'noopener,noreferrer');
           }}>
             <Background gap={24} size={1} />
             <Controls position="bottom-right" showInteractive={false} />

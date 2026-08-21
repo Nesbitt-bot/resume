@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { source } from '@/lib/source';
+import { site } from '@/lib/content';
 import { getMDXComponents } from '@/components/mdx-components';
 import { PageShell } from '@/components/page-shell';
 
@@ -19,6 +20,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: page.data.title,
     description: page.data.description,
+    alternates: {
+      canonical: new URL(page.url.replace(/^\//, ''), site.siteUrl).toString(),
+    },
   };
 }
 

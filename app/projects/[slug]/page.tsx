@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowUpRight, CalendarDays } from 'lucide-react';
 import { projects as projectDocuments } from 'collections/server';
 import { getMDXComponents } from '@/components/mdx-components';
 import { PageShell } from '@/components/page-shell';
-import { resume, slugify } from '@/lib/content';
+import { resume, site, slugify } from '@/lib/content';
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -28,6 +28,9 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   return {
     title: result.project.name,
     description: result.project.tldr ?? result.project['description-keys']?.[0],
+    alternates: {
+      canonical: new URL(`projects/${slug}/`, site.siteUrl).toString(),
+    },
   };
 }
 

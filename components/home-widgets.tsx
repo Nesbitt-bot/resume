@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, Mail } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
+import { withBasePath } from '@/lib/base-path';
 import type { Project, SiteData } from '@/lib/types';
 
 export function HomeHeroClient({ site }: { site: SiteData }) {
@@ -36,7 +37,7 @@ export function HomeHeroClient({ site }: { site: SiteData }) {
             transition={{ delay: 0.12, duration: 0.7 }}
           >
             <div className="portrait-frame">
-              <Image src="/media/profile.jpg" alt={`Portrait of ${site.name}`} fill priority sizes="(max-width: 760px) 70vw, 370px" />
+              <Image src={withBasePath('/media/profile.jpg')} alt={`Portrait of ${site.name}`} fill priority sizes="(max-width: 760px) 70vw, 370px" />
             </div>
             <div className="portrait-note note-one"><span>{site.hero.notes[0]?.label}</span>{site.hero.notes[0]?.value}</div>
             <div className="portrait-note note-two"><span>{site.hero.notes[1]?.label}</span>{site.hero.notes[1]?.value}</div>

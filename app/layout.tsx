@@ -3,6 +3,7 @@ import { NextProvider } from 'fumadocs-core/framework/next';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { ScrollProgress } from '@/components/scroll-progress';
+import { withBasePath } from '@/lib/base-path';
 import { site } from '@/lib/content';
 import 'computer-modern/cmu-serif.css';
 import 'computer-modern/cmu-typewriter-text.css';
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     template: `%s — ${site.name}`,
   },
   description: 'Computer scientist and mathematician building tools for learning, reasoning, and human agency.',
-  icons: { icon: '/favicon.svg' },
+  icons: { icon: withBasePath('/favicon.svg') },
   openGraph: {
     type: 'website',
     title: `${site.name} — Resume`,

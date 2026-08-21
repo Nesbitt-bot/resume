@@ -5,6 +5,7 @@ import { BookOpen, Check, ChevronDown, Copy, ExternalLink, MapPin, Presentation,
 import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
 import type { ReactNode } from 'react';
+import { withBasePath } from '@/lib/base-path';
 import type { Presentation as Talk, Project, QAItem, SiteData, SkillSemester } from '@/lib/types';
 import { courseAnchor } from '@/lib/slug';
 
@@ -33,7 +34,7 @@ export function TalksArchiveClient({ talks }: { talks: Talk[] }) {
 
 function localizeFile(url: string) {
   const match = url.match(/\/files\/([^/]+\.pdf)$/i);
-  return match ? `/files/${match[1]}` : url;
+  return match ? withBasePath(`/files/${match[1]}`) : url;
 }
 
 interface PathwayProps {
