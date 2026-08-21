@@ -19,13 +19,14 @@ links:
 star:
   situation: Moving daily work across Linux and Windows exposed the cost of depending on one vendor for files, photos, passwords, code, notes, and compute access.
   task: Build a portable personal infrastructure layer using open-source services that I could inspect, replace, and operate myself.
-  action: I deployed and maintained containerized services for storage, photos, passwords, Git hosting, CI/CD, media, chatbots, and remote compute behind DNS and reverse-proxy infrastructure.
-  result: The platform remains in daily use and taught me to treat reliability as an operational problem involving backups, exposure boundaries, routing, migration, and recovery rather than only application code.
+  action: I deployed and maintained containerized services for storage, photos, passwords, Git hosting, CI/CD, media, chatbots, and remote compute behind DNS and reverse-proxy infrastructure, repeatedly migrating components as my hardware and operational requirements changed.
+  result: The platform remains in daily use. Its portable architecture reduced a full service migration to about 30 minutes, and it continues to serve as the production foundation against which I test experimental tools such as circtime.
 tldr: A long-running self-hosted hybrid cloud that replaces proprietary storage, media, password, Git, CI/CD, and messaging services with open-source infrastructure.
 highlights:
   - Built a website containing learning material in computer science and shared personal interests at www.trance-0.com.
   - "Created a series of services via docker: git server, cloud storage via NextCloud/OpenList, media server via Immich, CI/CD manager via Jenkins, password manager via Bitwarden, chatbot supports QQ, WeChat, Telegram, and Discord."
   - Migrated Nextcloud from a TrueNAS jail through a Linux-core transition and several Docker iterations to an ARM Docker + Portainer stack with NAS-based cold storage, cutting a full service migration down to about 30 minutes on any Docker host.
+  - Proactively migrated a three-year-old CentOS network node to Ubuntu to simplify security maintenance, then built circtime as an experimental topology view while retaining the established production monitor.
 jobTags:
   - full-stack
   - back-end
@@ -40,6 +41,7 @@ A long-running self-hosted hybrid cloud that replaces proprietary storage, media
 
 - Built a website containing learning material in computer science and shared personal interests at www.trance-0.com.
 - Created a series of services via docker: git server, cloud storage via NextCloud/OpenList, media server via Immich, CI/CD manager via Jenkins, password manager via Bitwarden, chatbot supports QQ, WeChat, Telegram, and Discord.
+- Migrated Nextcloud through multiple architectures until a full service move took about 30 minutes, and later moved a three-year-old CentOS network node to Ubuntu to simplify ongoing security maintenance.
 
 ## Project narrative
 
@@ -53,8 +55,12 @@ Build a portable personal infrastructure layer using open-source services that I
 
 ### Action
 
-I deployed and maintained containerized services for storage, photos, passwords, Git hosting, CI/CD, media, chatbots, and remote compute behind DNS and reverse-proxy infrastructure.
+I deployed and maintained containerized services for storage, photos, passwords, Git hosting, CI/CD, media, chatbots, and remote compute behind DNS and reverse-proxy infrastructure. I repeatedly migrated components as the environment evolved: Nextcloud moved from a TrueNAS jail through a Linux-core transition and several Docker iterations to an ARM Docker and Portainer stack with NAS-based cold storage. More recently, I proactively migrated a root network node from a three-year-old CentOS installation to Ubuntu—not because an attack had been detected, but to reduce security-maintenance friction and standardize on the `apt` and `dpkg` ecosystem I use most often.
 
 ### Result
 
-The platform remains in daily use and taught me to treat reliability as an operational problem involving backups, exposure boundaries, routing, migration, and recovery rather than only application code.
+The platform remains in daily use and taught me to treat reliability as an operational problem involving backups, exposure boundaries, routing, migration, and recovery rather than only application code. The current containerized design reduced a full service migration to about 30 minutes on any suitable Docker host.
+
+## Monitoring experiment
+
+[circtime](/projects/circtime/) is a short experimental appendix to this platform. I built it to test a concentric, dependency-aware visualization of the infrastructure, but its post-migration configuration is not yet validated. I continue using the established Uptime deployment for production monitoring while I correct circtime's addresses and ports, which preserves operational reliability while leaving room to explore a different interface.
