@@ -2,9 +2,15 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, Moon, Sun, X } from 'lucide-react';
+import { Github, LibraryBig, Linkedin, Menu, Moon, Sun, X } from 'lucide-react';
 import { useState } from 'react';
 import type { SiteData } from '@/lib/types';
+
+const profileIcons = {
+  GitHub: Github,
+  LinkedIn: Linkedin,
+  'Personal index': LibraryBig,
+} as const;
 
 export function SiteHeader({ site }: { site: SiteData }) {
   const pathname = usePathname();
@@ -34,11 +40,22 @@ export function SiteHeader({ site }: { site: SiteData }) {
               })}
             </div>
             <div className="nav-profile-links" aria-label="Profile links">
-              {site.profiles.map((profile) => (
-                <a key={profile.href} href={profile.href} target="_blank" rel="noreferrer">
-                  {profile.label}
-                </a>
-              ))}
+              {site.profiles.map((profile) => {
+                const ProfileIcon = profileIcons[profile.label as keyof typeof profileIcons];
+                return (
+                  <a
+                    key={profile.href}
+                    className="profile-icon-link"
+                    href={profile.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={profile.label}
+                    title={profile.label}
+                  >
+                    {ProfileIcon ? <ProfileIcon size={18} aria-hidden="true" /> : profile.label}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </nav>
