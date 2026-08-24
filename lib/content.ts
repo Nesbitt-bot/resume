@@ -25,6 +25,21 @@ function byOrder<T extends { order: number }>(items: T[]) {
   return [...items].sort((a, b) => b.order - a.order);
 }
 
+function projectDateValue(date?: string) {
+  if (!date) return Number.NEGATIVE_INFINITY;
+  const [start = '', end = ''] = date.split(/\s+[–-]\s+/);
+  const selected = /^(present|current)$/i.test(end.trim()) ? start : end || start;
+  const match = selected.trim().match(/^(?:(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+)?(\d{4})$/i);
+  if (!match) return Number.NEGATIVE_INFINITY;
+  const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+  const month = match[1] ? months.indexOf(match[1].toLowerCase()) : 0;
+  return Date.UTC(Number(match[2]), month, 1);
+}
+
+function byProjectDate<T extends { date?: string; order: number }>(items: T[]) {
+  return [...items].sort((a, b) => projectDateValue(b.date) - projectDateValue(a.date) || b.order - a.order);
+}
+
 const siteDocument = first(siteDocuments, 'content/site/index.mdx');
 const pathwayDocument = first(pathwayDocuments, 'content/pathways/index.mdx');
 const profileDocument = first(profileDocuments, 'content/resume/profile/index.mdx');
@@ -88,7 +103,7 @@ export const resume: ResumeData = {
     skills: item.skills,
     category: item.category,
   })),
-  portfolio: byOrder(projectDocuments).map((item) => ({
+  portfolio: byProjectDate(projectDocuments).map((item) => ({
     name: item.title,
     slug: slugify(item.title),
     category: item.category,

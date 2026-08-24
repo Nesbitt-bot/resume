@@ -19,7 +19,7 @@ function SmartLink({ href = '', children, ...props }: React.AnchorHTMLAttributes
 }
 
 function HomeHero() {
-  return <HomeHeroClient site={site} />;
+  return <HomeHeroClient site={site} latestProject={resume.portfolio[0]} />;
 }
 
 function InquiryTabs() {

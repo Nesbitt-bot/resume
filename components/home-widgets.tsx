@@ -8,7 +8,10 @@ import { useState } from 'react';
 import { withBasePath } from '@/lib/base-path';
 import type { Project, SiteData } from '@/lib/types';
 
-export function HomeHeroClient({ site }: { site: SiteData }) {
+export function HomeHeroClient({ site, latestProject }: { site: SiteData; latestProject: Project }) {
+  const projectTags = latestProject.skills?.length ? latestProject.skills : latestProject.topicCategory ?? [];
+  const [currentTag] = useState(() => projectTags[Math.floor(Math.random() * projectTags.length)] ?? latestProject.category ?? 'Current project');
+
   return (
     <section className="hero-section">
         <div className="hero-pattern" aria-hidden="true">
@@ -39,7 +42,14 @@ export function HomeHeroClient({ site }: { site: SiteData }) {
             <div className="portrait-frame">
               <Image src={withBasePath('/media/profile.jpg')} alt={`Portrait of ${site.name}`} fill priority sizes="(max-width: 760px) 70vw, 370px" />
             </div>
-            <div className="portrait-note note-one"><span>{site.hero.notes[0]?.label}</span>{site.hero.notes[0]?.value}</div>
+            <Link
+              className="portrait-note note-one portrait-note-link"
+              href={`/projects/${latestProject.slug}/`}
+              aria-label={`Open latest project: ${latestProject.name}`}
+              title={latestProject.name}
+            >
+              <span>{site.hero.notes[0]?.label}</span>{currentTag}
+            </Link>
             <div className="portrait-note note-two"><span>{site.hero.notes[1]?.label}</span>{site.hero.notes[1]?.value}</div>
           </motion.div>
         </div>
