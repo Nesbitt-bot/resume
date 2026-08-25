@@ -2,37 +2,122 @@
 title: How does your profile fit with Amazon's 16 Leadership Principles?
 order: 1
 answer: |-
-  Note: I am mapping this to what my projects actually demonstrate rather than stretching them. My evidence skews toward internal stakeholders and teammates instead of long-running external customers, so I say so plainly where a principle is only a partial fit.
+  This is a retrieval map, not a set of memorized scripts. Start with the trigger, recover the decision and actions, then adapt the emphasis to the question.
 
-  **Customer Obsession** — I have not run a product with a large external customer base, so I map this to the specific people I build for and state the limits of the evidence. [NoteNextra (Notechondria)](/projects/notenextra-notechondria/) **(7/10)** publishes 551 course-note documents for WashU mathematics and computer-science learners, supports search and direct corrections, and serves about 10 users per week. Before the Math 4121 final, I corrected a set-boundary definition after Nathan Zhou reported it through Piazza, expanded the surrounding notation reference, and credited him in the note. I remain the primary user and have not advertised the site broadly, so the evidence supports responsiveness to real feedback but not broad customer discovery. For [SophiasPath](/projects/sophiaspath/) **(7/10)** I built the site around a single content provider’s publishing workflow; on [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) **(8/10)** I treated the algorithm team as my customer and rebuilt the data pipeline because they could not do reliable work without deterministic data.
+  ## Interview retrieval map
 
-  **Ownership** — I step into gaps that are not formally mine and see them through. On [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) **(9/10)** I inherited a non-deterministic data setup, rebuilt the entire pipeline, and then reorganized the team around shared standards; on [Web Development & Personal Website](/projects/web-development-personal-website/) **(9/10)** I have owned a self-hosted cloud end to end since 2020, including migrating it through several generations of infrastructure. During the final two semesters of [Washington University Chinese Groundbreakers](/projects/washington-university-chinese-groundbreakers/) **(8/10)**, when other leaders had less capacity and club activity declined, I repeatedly identified missing opportunities, proposed time-sensitive events, maintained web content outside my assigned role, gathered media and feedback, and continued personalized member support through graduation.
+  | Experience | Primary principles |
+  | --- | --- |
+  | MTA schema disagreement | Ownership · Earn Trust · Invent & Simplify |
+  | MTA uncertain requirements | Bias for Action · Ownership · Invent & Simplify |
+  | EV charging 72-hour case | Deliver Results · Dive Deep *(evidence TODO)* |
+  | Math research | Learn & Be Curious · Dive Deep |
+  | Note site simplification | Customer Obsession · Invent & Simplify |
 
-  **Invent and Simplify** — I look for the simpler mechanism that still works. [ImGenHCT](/projects/imgenhct/) **(8/10)** compressed text-to-image generation into a single step instead of iterative denoising; [circtime](/projects/circtime/) **(7/10)** monitors services from one config file with no dedicated backend; and I simplified [Web Development & Personal Website](/projects/web-development-personal-website/) **(9/10)** until a full migration takes about 30 minutes, where the old setup could not be moved at all. [NoteNextra (Notechondria)](/projects/notenextra-notechondria/) **(8/10)** is also a deliberate simplification: rather than wait for the larger Notechondria system, I released a static, searchable site so 551 existing notes could become useful immediately. As a secondary research example, [Flow-of-Thought](/projects/flow-of-thought/) **(7/10)** extended Graph of Thoughts with relevance filtering, independent solution agents, checking, and aggregation.
+  ## Primary story cards
 
-  **Are Right, A Lot** — I do not claim to be right by intuition; I make the evaluation function explicit and let evidence arbitrate. In [ATTPDRL](/projects/attpdrl/) I helped analyze contradictory reward ablations, reported plainly when the 90-degree task did not converge, and revised our assumption that a trajectory-free agent should learn the whole driving problem; in [ImGenHCT](/projects/imgenhct/) I used VQA and CLIP evaluation alongside qualitative inspection; and on [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) I made the early call that reliable data had to come before modeling, which is why I rebuilt the pipeline first.
+  ### MTA schema disagreement → Ownership / Earn Trust / Invent & Simplify
 
-  **Learn and Be Curious** — I turn learning into durable systems rather than leaving it as isolated coursework. [Applets for Algorithms](/projects/applets-for-algorithms/) **(9/10)** converts my algorithm study into 53 structured documents with runnable code, complexity analysis, intuition, applications, and references, alongside a top-0.64% LeetCode record reached without AI. [NoteNextra (Notechondria)](/projects/notenextra-notechondria/) **(8/10)** preserves and shares 551 documents across 18 mathematics and computer-science course directories. On [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) **(8/10)** I taught myself multi-touch attribution on the job. [Flow-of-Thought](/projects/flow-of-thought/) **(8/10)** is a secondary example: I independently extended a multi-agent reasoning framework, evaluated it across three task families, and documented the mixed evidence and missing ablations.
+  **Situation:** A 25-person advertising-strategy project depended on synthetic data, but contributors were producing incompatible datasets and implementations without a shared data contract.
 
-  **Hire and Develop the Best** — My evidence includes both direct team support and public pedagogy. On [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) **(8/10)** I held one-on-one meetings, arranged members by technical background, and unblocked at least five of them. [Applets for Algorithms](/projects/applets-for-algorithms/) **(7/10)** teaches algorithms through a repeatable structure of runnable implementations, complexity analysis, examples, extensions, and applications; [NoteNextra (Notechondria)](/projects/notenextra-notechondria/) **(7/10)** makes 551 course-note documents searchable and correctable for other WashU learners, including a Math 4121 final-review error I corrected and expanded after Nathan Zhou flagged it through Piazza. Through [Washington University Chinese Groundbreakers](/projects/washington-university-chinese-groundbreakers/) **(6/10)** I helped run learning and course-planning activities for a 300+ member community whose course-helper program assisted 15 students. The public sites demonstrate scalable teaching resources, but without stronger learner-outcome evidence I do not score them as highly as direct, observed development.
+  **Decision:** Treat integration as the immediate problem, even though I had been assigned to one group and had no formal authority over the rest of the team.
 
-  **Insist on the Highest Standards** — I hold output to a bar I am willing to sign. On [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) I refused to ship non-standardized, non-deterministic work and rebuilt it to a documented standard; [Applets for Algorithms](/projects/applets-for-algorithms/) reflects a no-AI top-0.64% LeetCode standard; [Robot Open Autonomous Racing (ROAR)](/projects/robot-open-autonomous-racing-roar/) earned the fastest single lap; and [circtime](/projects/circtime/) keeps a year of uptime history on 15-minute checks.
+  **Action:**
+  - Asked active contributors what data and interfaces their groups needed.
+  - Defined typed schemas, validation, manifests, storage adapters, and standardized MTA interfaces.
+  - Documented and tested the contracts while coordinating integration discussions.
 
-  **Think Big** — I choose directions that matter beyond a single deliverable. [Web Development & Personal Website](/projects/web-development-personal-website/) is a bet that infrastructure should be portable and vendor-independent; [ImGenHCT](/projects/imgenhct/) pushed one-step generation; and [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) aimed to standardize how a whole team works rather than only my own part.
+  **Result:** The active subgroup adopted the shared interfaces. The mentor selected my implementation as the project's most mature product and best match for the expected deliverable.
 
-  **Bias for Action** — I ship, then learn from the response. On [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) I delivered the first reproducible simulation baseline in two days rather than wait for a formal cross-team mandate; and I reworked [Web Development & Personal Website](/projects/web-development-personal-website/) until a full migration took about 30 minutes.
+  **Useful for:** **Ownership** — took responsibility for a cross-team dependency. **Earn Trust** — learned the groups' constraints before defining shared contracts. **Invent & Simplify** — placed incompatible implementations behind common, extensible interfaces.
 
-  **Frugality** — I accomplish more with less. [Web Development & Personal Website](/projects/web-development-personal-website/) replaces paid services with self-hosted open source, and its portable container design reduced a full service migration to about 30 minutes. [circtime](/projects/circtime/) is an experimental extension that tests whether GitHub Actions, a state branch, and static Pages hosting can support topology-aware monitoring without a dedicated backend.
+  **Follow-up hooks:** no formal authority; fixed seeds and configuration hashes; CSV, SQLite, PostgreSQL, and external-writer paths; contributors who preferred independent approaches remained outside the shared workflow.
 
-  **Earn Trust** — I build trust by delivering and being candid. On [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) the team now works on the standard I established; [SophiasPath](/projects/sophiaspath/) shipped a working site for a content provider; and through [Washington University Chinese Groundbreakers](/projects/washington-university-chinese-groundbreakers/) **(7/10)** I earned trust by consistently noticing neglected needs, prompting action, maintaining information outside my formal role, and responding to member feedback in a 300+ member community.
+  ### MTA uncertain requirements / modular simulator → Bias for Action / Ownership / Invent & Simplify
 
-  **Dive Deep** — I stay connected to the details. I rebuilt [Web Development & Personal Website](/projects/web-development-personal-website/) down to FreeBSD jail permissions before moving it to Docker; in [circtime](/projects/circtime/) I directed and debugged the HTTP/TCP probes, DNS discovery, and dependency-diagnosis experiment; and in [ATTPDRL](/projects/attpdrl/) I tested PPO and DDPG, built the continuous-action adapter, reviewed the environment, maintained the documentation and visualizations, and jointly analyzed the final DQN experiments.
+  **Situation:** Client data and identifying details were withheld, while the team still needed dependable inputs before attribution methods or an optimizer could be evaluated.
 
-  **Have Backbone; Disagree and Commit** — I do not have a dramatic disagreement anecdote, and I am honest about that. My backbone shows up as holding a quality line: on [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) I refused to put my name on non-standardized work and rebuilt it rather than accept the team’s default. Once a direction is set I commit fully, as I did through repeated migrations of [Web Development & Personal Website](/projects/web-development-personal-website/).
+  **Decision:** Build a reproducible synthetic baseline immediately, but leave explicit extension points for later approved data, storage, and models.
 
-  **Deliver Results** — I convert effort into outcomes. The mentor selected my [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) implementation as the project's most mature product and best match for the expected deliverable; [Robot Open Autonomous Racing (ROAR)](/projects/robot-open-autonomous-racing-roar/) placed second with the fastest lap; and [ImGenHCT](/projects/imgenhct/) reached a 0.79 VQA score.
+  **Action:**
+  - Delivered the first usable simulation baseline in two days.
+  - Made it configuration-driven and deterministic with fixed seeds, typed schemas, validation, and dataset manifests.
+  - Separated evaluation-only ground truth from model features and added storage and model interfaces.
 
-  **Strive to be Earth’s Best Employer** — I try to make teams safer and more capable. On [MTA Strategy Optimizer](/projects/mta-strategy-optimizer/) I bridged remote and on-site members who were not communicating and arranged people by their technical backgrounds; [Washington University Chinese Groundbreakers](/projects/washington-university-chinese-groundbreakers/) **(6/10)** served a 300+ member community, although my evidence here demonstrates individual support and continuity more strongly than employer-scale organizational change; and on [Gray-75](/projects/gray-75/) I supported junior developers over the long term.
+  **Result:** The team gained a reproducible development baseline instead of waiting for unavailable client data. The maintained workspace reports 476 passing Python tests and 47 dashboard tests; development and mentor evaluation remain ongoing.
 
-  **Success and Scale Bring Broad Responsibility** — I build things meant to outlive their immediate course or personal use. [NoteNextra (Notechondria)](/projects/notenextra-notechondria/) **(8/10)** turns 551 personal course-note documents into a maintained public archive with search and correction paths, while acknowledging that I remain its primary user and its reach comes mainly from sharing with classmates rather than promotion; [Applets for Algorithms](/projects/applets-for-algorithms/) **(8/10)** turns ongoing algorithm practice into 53 open teaching documents; and [Graphical Applets for Computational Geometry Algorithms](/projects/graphical-applets-for-computational-geometry-algorithms/) **(7/10)** made a course visualization publicly reusable. [Gray-75](/projects/gray-75/) **(6/10)** raises awareness of Alzheimer’s disease, and [Using Machine Learning to Analyze Apartheid in South Africa](/projects/using-machine-learning-to-analyze-apartheid-in-south-africa/) **(6/10)** applied ML to historical analysis, but those two currently have weaker evidence of sustained reach.
+  **Useful for:** **Bias for Action** — created a reversible baseline under uncertainty. **Ownership** — solved the upstream dependency rather than limiting work to the assigned subgroup. **Invent & Simplify** — modularized future variation instead of guessing one final requirement.
+
+  **Follow-up hooks:** why synthetic data was necessary; how leakage was structurally prevented; why this is a pre-production proof of concept rather than evidence of advertising lift.
+
+  ### EV charging 72-hour case → Deliver Results / Dive Deep / Bias for Action
+
+  **Evidence TODO:** I could not verify this case in the current résumé, Q&A, project pages, or repository documentation. Do not use a reconstructed result, metric, technical diagnosis, or timeline until a source is added. Once documented, this should become the primary delivery-under-deadline story.
+
+  **Follow-up hooks to document:** exact assignment and deadline; evidence inspected; decision made; personally completed actions; submitted or observable result; what remained uncertain.
+
+  ### Mathematical research → Learn & Be Curious / Dive Deep
+
+  **Situation:** My Freiwald research and senior honors thesis examined why random states in high-dimensional bipartite quantum systems are highly entangled with high probability.
+
+  **Decision:** Build the mathematical chain needed to connect concentration inequalities, quantum entanglement, and Gromov's observable diameter rather than treating the result as a black box.
+
+  **Action:**
+  - Studied non-commutative probability, metric-measure spaces, high-dimensional probability, manifolds, and quantum information.
+  - Presented intermediate work on non-commutative probability and concentration of measure.
+  - Used Hayden's result to obtain estimates for the observable diameter of complex projective spaces in the honors-thesis presentation.
+
+  **Result:** Completed the year-long reading and research path and presented the senior honors thesis to the Washington University mathematics department on March 26, 2026.
+
+  **Useful for:** **Learn & Be Curious** — crossed several unfamiliar mathematical areas to understand one claim. **Dive Deep** — followed the result through its geometric and quantum-information details.
+
+  **Follow-up hooks:** why concentration implies typical entanglement; observable diameter; the role of complex projective space; how the research scope evolved from the summer program to the thesis.
+
+  ### Note site simplification → Customer Obsession / Invent & Simplify
+
+  **Situation:** Hundreds of mathematics and computer-science notes could help other WashU learners, but the larger Notechondria system was not stable enough to publish them promptly.
+
+  **Decision:** Release a lightweight static site instead of withholding useful material until the larger platform was ready.
+
+  **Action:**
+  - Published 551 Markdown and MDX documents across 18 course directories with Next.js and Nextra.
+  - Added weekly Algolia search plus GitHub editing and issue-feedback paths.
+  - Corrected a Math 4121 set-boundary definition after Nathan Zhou reported it through Piazza, expanded the nearby notation reference, and credited him.
+
+  **Result:** The public archive serves about 10 users per week, although I remain its primary user. The correction path caught an error that was difficult to find through solo proofreading of the full archive.
+
+  **Useful for:** **Customer Obsession** — made the archive usable and responded to a real reader correction. **Invent & Simplify** — chose the smallest stable publishing path instead of waiting for the larger system.
+
+  **Follow-up hooks:** why broad solo proofreading was impractical; search and correction workflow; limits of the usage evidence; static site versus the larger Notechondria platform.
+
+  ## 16-principle coverage map
+
+  **Primary** means the evidence directly supports the principle. **Secondary** means the story is defensible with a narrower angle. **Weak / prepare another example** means the current record is insufficient for a strong interview answer.
+
+  | Leadership Principle | Coverage | Natural retrieval anchor |
+  | --- | --- | --- |
+  | Customer Obsession | **Primary** | Note site simplification and the Math 4121 reader correction. Keep the scope honest: about 10 weekly users, and I remain the primary user. |
+  | Ownership | **Primary** | MTA integration gap: solved the shared upstream dependency without formal authority. |
+  | Invent and Simplify | **Primary** | MTA common contracts or the lightweight note site; use the former for architecture and the latter for product scope. |
+  | Are Right, A Lot | **Secondary** | MTA: prioritized reliable data before modeling. ATTPDRL is an alternate evidence-led example because we preserved a failed 90-degree steering result and revised the system scope. |
+  | Learn and Be Curious | **Primary** | Concentration-of-measure and quantum-information research. Applets for Algorithms is a secondary long-term learning system. |
+  | Hire and Develop the Best | **Secondary** | TA/grader work, public teaching material, Groundbreakers course support, or long-term support for junior Gray-75 developers. Current pages document support more clearly than learner development outcomes. |
+  | Insist on the Highest Standards | **Secondary** | MTA validation, tests, deterministic data, and documented contracts. The NoteNextra correction shows responsiveness, not proof that the entire 551-document archive meets one uniform standard. |
+  | Think Big | **Secondary** | Portable, vendor-independent personal infrastructure or turning private notes into a reusable public archive. These show direction and longevity, but not organization-scale impact. |
+  | Bias for Action | **Primary** | MTA baseline delivered in two days under uncertain requirements. The EV case remains unavailable until documented. |
+  | Frugality | **Secondary** | Self-hosted open-source infrastructure and a container design that reduced a full service migration to about 30 minutes. No verified cost-savings figure is available. |
+  | Earn Trust | **Primary** | MTA schema disagreement: gathered group requirements, supplied shared contracts, and earned adoption without formal authority. |
+  | Dive Deep | **Primary** | Mathematical research for theoretical depth; MTA schemas and validation for engineering depth. Use the EV case only after its evidence is added. |
+  | Have Backbone; Disagree and Commit | **Weak / prepare another example** | MTA supports holding a technical quality line, but the repository does not document a clear disagreement, escalation, final decision, and committed follow-through. |
+  | Deliver Results | **Primary** | MTA implementation selected by the mentor; ROAR placed second and recorded the fastest lap. The requested EV anchor is still an evidence TODO. |
+  | Strive to be Earth's Best Employer | **Weak / prepare another example** | Groundbreakers, TA work, and support for junior developers show individual support. They do not establish employer-scale workplace improvement. |
+  | Success and Scale Bring Broad Responsibility | **Secondary** | NoteNextra and Applets for Algorithms convert private learning material into maintained public resources. Reach and downstream impact remain limited or incompletely measured. |
+
+  ## Fast angle switches
+
+  - **MTA schema disagreement:** Ownership = stepped into the gap; Earn Trust = learned constraints first; Invent & Simplify = standardized the interface.
+  - **MTA uncertain requirements:** Bias for Action = shipped a reversible baseline; Ownership = solved the dependency; Invent & Simplify = preserved extension points.
+  - **Math research:** Learn & Be Curious = acquired unfamiliar theory; Dive Deep = connected the theorem to geometric estimates.
+  - **Note site:** Customer Obsession = published and corrected for learners; Invent & Simplify = chose a stable static path.
+  - **ROAR:** Deliver Results = second place and fastest lap; Dive Deep = manually tuned the PID controller.
 ---
