@@ -41,3 +41,7 @@ npm run build
 - Zod schemas in `source.config.ts` validate every editable record.
 - Small React widgets provide search, tabs, filtering, animation, media embeds, and the skills atlas.
 - All routes are statically exported with `output: 'export'`.
+
+## Deployment-version alert
+
+The Pages workflow injects `NEXT_PUBLIC_DEPLOYED_SHA=${{ github.sha }}` during the static build. The header compares that immutable deployed SHA with GitHub's current `main` commit in the browser. A deployment link appears only while they differ; API/network failures fail closed, and the alert disappears automatically when the new Pages artifact is serving. Local builds omit the SHA and never show the alert.

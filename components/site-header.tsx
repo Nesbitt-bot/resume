@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Github, LibraryBig, Linkedin, Menu, Moon, Sun, X } from 'lucide-react';
 import { useState } from 'react';
 import type { SiteData } from '@/lib/types';
+import { DeploymentAlert } from '@/components/deployment-alert';
 
 const profileIcons = {
   GitHub: Github,
@@ -77,6 +78,7 @@ export function SiteHeader({ site }: { site: SiteData }) {
           </button>
         </div>
       </div>
+      <DeploymentAlert deployedVersion={process.env.NEXT_PUBLIC_DEPLOYED_SHA} />
     </header>
   );
 }

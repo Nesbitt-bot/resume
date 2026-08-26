@@ -325,3 +325,12 @@ img { max-width: 100%; }
 @media print {
   :root { --bg: #fff; --surface: #fff; --ink: #111; --muted: #444; --line: #bbb; }.site-header, .site-footer, .scroll-progress, .no-print, .page-heading, .toc { display: none !important; }.content-page { width: 100%; padding: 0; }.content-layout { display: block; }.resume-panel { display: none; }.print-resume-heading, .print-only { display: block; }.print-resume-heading { margin-bottom: 1.5rem; border-bottom: 2px solid #111; }.print-resume-heading h2 { margin: 0; font: 700 24pt/1.1 var(--serif); }.print-resume-heading p { font-size: 8pt; }.print-sections .timeline-section { margin-bottom: 1.5rem; }.section-intro { margin: 0 0 .7rem; padding: .5rem 0; background: transparent; color: #111; grid-template-columns: 30px 1fr; border-bottom: 1px solid #111; }.section-intro h2 { font-size: 14pt; }.section-intro p { display: none; }.timeline-list { margin-left: .5rem; }.timeline-list article { break-inside: avoid; padding: 0 0 .65rem 1.2rem; }.timeline-list h3 { font-size: 10pt; }.timeline-list article > p, .timeline-place, .timeline-date { margin-block: .1rem; font-size: 7.5pt !important; }.tag-row span { padding: .08rem .2rem; font-size: 6pt; }.education-metrics { margin: .3rem 0; }.education-metrics span { padding: .2rem; font-size: 6pt; }.language-strip { display: none; } @page { margin: .55in; }
 }
+
+.deployment-alert { display: block; padding: .42rem 1rem; background: color-mix(in srgb, var(--accent) 14%, var(--surface)); border-top: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line)); color: var(--ink); font: 700 .72rem/1.35 var(--sans); text-align: center; text-decoration: none; }
+.deployment-alert:hover { background: color-mix(in srgb, var(--accent) 22%, var(--surface)); color: var(--accent); }
+.case-study-figure { margin: 2rem 0; padding: 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.case-study-figure img { width: 100%; height: auto; }
+.case-study-figure figcaption { margin-top: .7rem; color: var(--muted); font-size: .8rem; }
+.principle-example { margin: .75rem 0; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
+.principle-example summary { cursor: pointer; font-family: var(--serif); font-weight: 700; }
+.principle-example p { margin: .65rem 0; }

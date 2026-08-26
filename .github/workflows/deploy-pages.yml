@@ -44,6 +44,8 @@ jobs:
         run: npm run typecheck
 
       - name: Build static site
+        env:
+          NEXT_PUBLIC_DEPLOYED_SHA: ${{ github.sha }}
         run: npm run build
 
       - name: Prepare GitHub Pages artifact
