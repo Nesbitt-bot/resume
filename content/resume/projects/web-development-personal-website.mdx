@@ -13,9 +13,16 @@ skills:
   - Linux
   - Docker
   - Programming
+  - React
+  - TypeScript
+  - Three.js
+  - GitHub Actions
+  - Infrastructure Monitoring
 links:
   - label: Website
     url: https://index.trance-0.com
+  - label: circtime reference project
+    url: https://github.com/Trance-0/circtime
 star:
   situation: Moving daily work across Linux and Windows exposed the cost of depending on one vendor for files, photos, passwords, code, notes, and compute access.
   task: Build a portable personal infrastructure layer using open-source services that I could inspect, replace, and operate myself.
@@ -61,6 +68,8 @@ I deployed and maintained containerized services for storage, photos, passwords,
 
 The platform remains in daily use and taught me to treat reliability as an operational problem involving backups, exposure boundaries, routing, migration, and recovery rather than only application code. The current containerized design reduced a full service migration to about 30 minutes on any suitable Docker host.
 
-## Monitoring experiment
+## Monitoring experiment: circtime
 
-[circtime](/projects/circtime/) is a short experimental appendix to this platform. I built it to test a concentric, dependency-aware visualization of the infrastructure, but its post-migration configuration is not yet validated. I continue using the established Uptime deployment for production monitoring while I correct circtime's addresses and ports, which preserves operational reliability while leaving room to explore a different interface.
+As an appendix to this platform, I built [circtime](https://github.com/Trance-0/circtime), an AI-assisted React and TypeScript prototype that tests a concentric, dependency-aware view of my hybrid-cloud topology. It combines an SVG uptime radar with a Three.js history view and uses YAML configuration for infrastructure, services, network nodes, dependencies, thresholds, and retention. GitHub Actions performs HTTP and TCP checks, retains compressed history, and deploys the static dashboard without a dedicated monitoring backend.
+
+The experiment is intentionally not presented as the production monitor. Its private configuration predates a server migration and still requires address and port validation, so I continue using the established Uptime deployment for operational monitoring. circtime remains a reference implementation for topology visualization, degraded-state diagnosis, DNS discovery, and human-directed AI-assisted prototyping.
