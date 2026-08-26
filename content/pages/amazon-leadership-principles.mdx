@@ -145,7 +145,7 @@ I do not treat “right” as a fixed position owned by one person. People act u
 
 ## Learn and Be Curious
 
-Learn and Be Curious describes the habit of following a question beyond the knowledge already required by a role or course. My mathematical research pushed me across probability, geometry, and quantum information, while projects such as Mon3tr forced me to connect diffusion models with 3D reconstruction. I tend to learn by building enough of the surrounding system to discover where my understanding actually breaks.
+Learn and Be Curious describes how I have approached both formal study and practical infrastructure since high school: I start with a real limitation, explore tools outside what I already know, and keep rebuilding until the system fits the need. Mathematical research took me across probability, geometry, and quantum information; my personal cloud took me from NAS file sharing to FreeBSD jails, Nextcloud, Linux, Docker, portable volumes, and cross-platform services. The lasting motivation is not novelty alone, but the satisfaction of learning a technique by applying it to make daily work more capable and efficient.
 
 <details className="principle-example">
 <summary>Mathematical Research</summary>
@@ -161,17 +161,17 @@ Learn and Be Curious describes the habit of following a question beyond the know
 </details>
 
 <details className="principle-example">
-<summary>Mon3tr</summary>
+<summary>Web Development & Personal Infrastructure</summary>
 
-**Situation:** A project tested whether plausible 2D inpainting could fill missing views in 3D reconstruction.
+**Situation:** Since high school, I wanted storage that was independent of Baidu Netdisk or Google Drive because cross-country access, latency, and platform constraints did not fit how I used files across devices.
 
-**Task:** Integrate reconstruction and diffusion into a runnable iterative pipeline.
+**Task:** Build a personal cloud that met the immediate need while using each migration as an opportunity to learn a more capable and portable infrastructure model.
 
-**Action:** Built the pipeline and UI, then inspected intermediate views and resulting geometry.
+**Action:** I began with an SMB share on a NAS, then taught myself FreeBSD and deployed Nextcloud inside an isolated TrueNAS jail. During university I independently learned Docker, volumes, networking, and container migration, and repeatedly moved the service across old computers and newer hosts while adding clients and supporting services for iOS, Windows, and Linux.
 
-**Result:** The code path ran, but geometry was unusable; the negative result exposed multi-view inconsistency.
+**Result:** The service now runs on my home network, lets me use and share files across platforms and with friends, and can be migrated between suitable Docker hosts in about 30 minutes. More importantly, the long sequence of real migrations turned curiosity about unfamiliar systems into durable operational knowledge.
 
-[Read the project](/projects/mon3tr/)
+[Read the project](/projects/web-development-personal-website/)
 
 </details>
 

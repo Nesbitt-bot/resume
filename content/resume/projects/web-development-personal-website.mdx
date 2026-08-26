@@ -50,6 +50,16 @@ A long-running self-hosted hybrid cloud that replaces proprietary storage, media
 - Created a series of services via docker: git server, cloud storage via NextCloud/OpenList, media server via Immich, CI/CD manager via Jenkins, password manager via Bitwarden, chatbot supports QQ, WeChat, Telegram, and Discord.
 - Migrated Nextcloud through multiple architectures until a full service move took about 30 minutes, and later moved a three-year-old CentOS network node to Ubuntu to simplify ongoing security maintenance.
 
+## The Nextcloud learning journey
+
+I began experimenting with personal infrastructure in high school because mainstream cloud-storage products did not work equally well across the countries, devices, and networks I used. Cross-border latency, accessibility differences, and platform constraints made a simple requirement—keeping my own files available everywhere—an ongoing technical question.
+
+My first solution was an SMB share on a NAS. It worked inside the network, but it did not provide the cross-platform experience or remote access I wanted. I then discovered Nextcloud, a large community-supported open-source cloud platform, and used the project as a reason to teach myself FreeBSD and the TrueNAS jail model. Running Nextcloud in an isolated jail let me experiment with the application and its dependencies without destabilizing unrelated server components.
+
+During university, I independently learned Docker and rebuilt the service around containers. Volumes separated persistent data from a particular machine, networking made the surrounding services composable, and containerization allowed me to reuse old computers instead of treating each hardware change as a complete reinstall. Nextcloud subsequently moved through a Linux-core transition and several Docker arrangements before reaching the current ARM Docker and Portainer deployment with NAS-based cold storage.
+
+The practical result is a personal cloud on my home network that works across iOS, Windows, and Linux and lets me share files and tools with friends without committing the data to one commercial platform. The more important result is the learning process itself: each limitation led to a new operating system, isolation model, deployment technique, or migration strategy, and each technique became meaningful because it improved a service I use in daily life.
+
 ## Project narrative
 
 ### Situation
