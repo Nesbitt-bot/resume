@@ -9,16 +9,16 @@ This page is a retrieval guide, not a claim that every example has equal strengt
 
 ## Customer Obsession
 
-Customer Obsession means starting from the person who must use the result, then working backward instead of treating implementation as the finish line. In my experience, the closest equivalent is serving learners, collaborators, and maintainers: publishing NoteNextra before the larger platform was complete, responding to a reader-reported mathematical error, and building SophiasPath around what a teammate needed to publish rather than around the backend I happened to want to build.
+Customer Obsession means starting from the person who must use the result, then working backward instead of treating implementation as the finish line. In my experience, this means giving classmates an immediately useful learning resource instead of asking them to wait for a perfect platform, and designing reliability analysis from the manager's decisions and dashboard experience backward to the data, metrics, and detection components required to support them.
 
 <details className="principle-example">
 <summary>NoteNextra / Notechondria</summary>
 
 **Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
 
-**Task:** Give my classmates a reliable resource they could access immediately after class, rather than make them wait several months for a more fully featured application to be completed and deployed.
+**Task:** Give classmates a reliable resource immediately after class instead of making them wait months for a more fully featured application.
 
-**Action:** Built a static site with 551 Markdown/MDX documents, weekly Algolia indexing, and correction paths.
+**Action:** Worked backward from learner access: published the existing notes as a lightweight static site, then added search, GitHub correction paths, and weekly indexing.
 
 **Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
 
@@ -27,17 +27,17 @@ Customer Obsession means starting from the person who must use the result, then 
 </details>
 
 <details className="principle-example">
-<summary>SophiasPath</summary>
+<summary>Reliability Event Detection Case Study</summary>
 
-**Situation:** A teammate needed to publish structured philosophy research connecting thinkers, writings, and concepts.
+**Situation:** A manager needed to review network reliability without labeled failures or time to reconstruct the meaning of low-level operational records.
 
-**Task:** Own the backend, data model, deployment, and coordination while supporting frontend integration.
+**Task:** Optimize the manager's experience as the product's client by starting with the decisions and drill-downs the delivered dashboard needed to support, then work backward to the analytical components required underneath it.
 
-**Action:** Built Django/PostgreSQL models, APIs, Markdown import, administration, Docker/Nginx deployment, and integration fixes.
+**Action:** I defined the daily report and interactive dashboard first—dates, affected units, systemic status, candidate correlates, impact ranking, and location-level drill-down—then reverse-mapped each view to the station metrics, historical and peer baselines, statistical tests, factor-enrichment logic, diagnostics, and data transformations needed to make it auditable.
 
-**Result:** The team publicly deployed a usable site; no reliable audience analytics were retained.
+**Result:** The notebook delivered a manager-oriented review interface backed by traceable event diagnostics, while keeping client, dataset, and domain details within the required disclosure boundary.
 
-[Read the project](/projects/sophiaspath/)
+[Read the project](/projects/reliability-event-detection-case-study/)
 
 </details>
 
@@ -50,9 +50,9 @@ Ownership means accepting responsibility for the outcome beyond the narrow bound
 
 **Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
 
-**Task:** Create dependable upstream data and common interfaces without formal authority, extending beyond the data-science responsibilities originally assigned to me.
+**Task:** Take responsibility for dependable upstream data and cross-group integration, although both extended beyond my assigned data-science work.
 
-**Action:** I delivered a fixed-seed baseline in two days, then actively consulted contributors outside the data-science department—especially algorithm teams—to understand the data model, inputs, outputs, and evaluation concerns at each layer. I translated those requirements into typed schemas, validation, manifests, adapters, tests, and documentation.
+**Action:** Proactively consulted other groups, especially algorithm contributors, mapped each layer's inputs and outputs, and implemented the shared schemas, validation, adapters, tests, and documentation.
 
 **Result:** The active subgroup integrated around the shared interfaces; the mentor called this the most mature implementation and best match for expectations.
 
@@ -65,9 +65,9 @@ Ownership means accepting responsibility for the outcome beyond the narrow bound
 
 **Situation:** Club leaders had reduced capacity during their final semesters, and activity was declining.
 
-**Task:** Keep the club useful and responsive beyond assigned website and media duties.
+**Task:** Keep the club useful through graduation, including website, media, and member support outside my assigned event-planning duties.
 
-**Action:** Proposed timely events, maintained content, sought feedback, attended nearly every event, and offered personalized help.
+**Action:** Repeatedly identified time-sensitive gaps, proposed events, maintained content, requested missing media, attended nearly every event, and offered individual course help.
 
 **Result:** The club continued serving more than 300 members, and course support helped 15 students plan schedules.
 
@@ -84,9 +84,9 @@ Invent and Simplify is not novelty for its own sake; it is finding a smaller, cl
 
 **Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
 
-**Task:** Create dependable upstream data and common interfaces without formal authority.
+**Task:** Replace incompatible one-off datasets with the smallest reproducible contract that every active group could extend.
 
-**Action:** Delivered a fixed-seed baseline in two days, then added typed schemas, validation, manifests, adapters, tests, and documentation.
+**Action:** Delivered a fixed-seed baseline in two days, then consolidated recurring integration needs into typed schemas, manifests, validation, storage adapters, tests, and one documented MTA interface.
 
 **Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
 
@@ -99,9 +99,9 @@ Invent and Simplify is not novelty for its own sake; it is finding a smaller, cl
 
 **Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
 
-**Task:** Publish a useful, searchable archive without waiting for the larger platform.
+**Task:** Separate the immediately useful note archive from the unstable larger platform so complexity would not block delivery.
 
-**Action:** Built a static site with 551 Markdown/MDX documents, weekly Algolia indexing, and correction paths.
+**Action:** Used a static Nextra site for 551 existing documents and added managed search and correction paths instead of requiring a full custom publishing backend.
 
 **Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
 
@@ -118,9 +118,9 @@ I do not treat “right” as a fixed position owned by one person. People act u
 
 **Situation:** A trailer-truck parking task allowed several plausible research paths, but nonlinear dynamics, sparse success, and expensive exploration made every choice a trade-off.
 
-**Task:** Explore trajectory-free deep reinforcement learning without assuming that the cheapest, fastest, or most reliable implementation was automatically the only correct direction.
+**Task:** Choose and revise the research direction by comparing evidence across convergence, reliability, compute cost, and learning value—not by defending the original proposal.
 
-**Action:** The team investigated PPO, DDPG, and DQN paths, built supporting utilities, adapters, and visualizations, and compared outcomes through multiple metrics including convergence, implementation reliability, computational cost, and the knowledge gained from unsuccessful trials.
+**Action:** Tested PPO and DDPG, helped analyze DQN and reward ablations, simplified the task when evidence demanded it, and stopped broad search when each complex agent cost roughly seven GPU-hours.
 
 **Result:** Straight driving converged while 90-degree steering did not after five million steps. Rather than forcing one definition of success, we used the contrast between paths and metrics to revise the scope and clarify what each approach could establish.
 
@@ -133,9 +133,9 @@ I do not treat “right” as a fixed position owned by one person. People act u
 
 **Situation:** Data-science, algorithm, dashboard, and other project groups were developing different layers with different assumptions about the data they needed and the outcomes they were optimizing.
 
-**Task:** Understand those perspectives well enough to design shared interfaces, even though cross-department integration and analysis of every layer's data model were outside my original AI Engineer responsibilities.
+**Task:** Understand what each group was optimizing before deciding on interfaces, rather than assuming my original data-science view was sufficient.
 
-**Action:** I actively spoke with contributors beyond the data-science group, worked closely with algorithm teams, analyzed the input and output model required at each layer, and translated competing implementation concerns into shared schemas and extension points.
+**Action:** Sought perspectives outside my group, analyzed each layer's inputs, outputs, and evaluation concerns, and used the common requirements to design shared schemas and extension points.
 
 **Result:** The active subgroup integrated around a common contract, while the discussions exposed why teams made different choices under different metrics rather than reducing disagreement to one side being right.
 
@@ -152,9 +152,9 @@ Learn and Be Curious describes how I have approached both formal study and pract
 
 **Situation:** A research path required connecting high-dimensional probability, geometry, and quantum information.
 
-**Task:** Understand the chain behind typical entanglement rather than treat the result as a black box.
+**Task:** Learn enough probability, geometry, and quantum information to reconstruct the argument behind typical entanglement rather than quote it as a black box.
 
-**Action:** Studied the necessary fields and presented intermediate and thesis work.
+**Action:** Studied across the three fields, worked through intermediate results, and presented both intermediate work and the final thesis.
 
 **Result:** Completed the year-long path and presented the senior honors thesis on March 26, 2026.
 
@@ -165,9 +165,9 @@ Learn and Be Curious describes how I have approached both formal study and pract
 
 **Situation:** Since high school, I wanted storage that was independent of Baidu Netdisk or Google Drive because cross-country access, latency, and platform constraints did not fit how I used files across devices.
 
-**Task:** Build a personal cloud that met the immediate need while using each migration as an opportunity to learn a more capable and portable infrastructure model.
+**Task:** Use each operational limitation as a reason to learn a more portable infrastructure model while keeping the service useful.
 
-**Action:** I began with an SMB share on a NAS, then taught myself FreeBSD and deployed Nextcloud inside an isolated TrueNAS jail. During university I independently learned Docker, volumes, networking, and container migration, and repeatedly moved the service across old computers and newer hosts while adding clients and supporting services for iOS, Windows, and Linux.
+**Action:** Taught myself FreeBSD jails, then Linux, Docker, volumes, networking, and migration by repeatedly rebuilding Nextcloud and related cross-platform services on changing hardware.
 
 **Result:** The service now runs on my home network, lets me use and share files across platforms and with friends, and can be migrated between suitable Docker hosts in about 30 minutes. More importantly, the long sequence of real migrations turned curiosity about unfamiliar systems into durable operational knowledge.
 
@@ -177,20 +177,20 @@ Learn and Be Curious describes how I have approached both formal study and pract
 
 ## Hire and Develop the Best
 
-For my experience, this principle is better understood as raising the capability of the people around me, since I have not yet owned a formal hiring process. I have led junior developers on Gray-75, helped students plan courses through Chinese Groundbreakers, and tried to make team contributions easier through documentation and shared interfaces. The evidence is strongest in mentoring and enablement, not hiring decisions.
+For my experience, this principle is better understood as raising the capability of the people around me, since I have not yet owned a formal hiring process. I have guided newer participants in ROAR, helped students plan courses through Chinese Groundbreakers, and made team contributions easier through documentation and shared interfaces. The evidence is strongest in mentoring and enablement, not hiring decisions.
 
 <details className="principle-example">
-<summary>Gray-75</summary>
+<summary>MTA Strategy Optimizer</summary>
 
-**Situation:** A three-person team used a first-person puzzle game to explore an Alzheimer’s narrative.
+**Situation:** Contributors across a 25-person project were producing incompatible data and implementations, and I had no formal authority over them.
 
-**Task:** Lead the team and deliver a playable demonstration.
+**Task:** Raise the active subgroup's capability by making correct integration easier, not by keeping the architecture in my own head.
 
-**Action:** Designed scenes, implemented gameplay with Unity and Blender, and supported junior developers.
+**Action:** Asked contributors what their groups needed, converted those needs into typed contracts and extension points, and supplied tests, adapters, and specification-oriented documentation they could use independently.
 
-**Result:** The team completed a playable demo and video preview.
+**Result:** The active subgroup adopted the shared interfaces; the mentor selected my implementation as the project's most mature product and best match for expectations.
 
-[Read the project](/projects/gray-75/)
+[Read the project](/projects/mta-strategy-optimizer/)
 
 </details>
 
@@ -199,9 +199,9 @@ For my experience, this principle is better understood as raising the capability
 
 **Situation:** Club leaders had reduced capacity during their final semesters, and activity was declining.
 
-**Task:** Keep the club useful and responsive beyond assigned website and media duties.
+**Task:** Help members make better academic decisions through individual support, not only run general events.
 
-**Action:** Proposed timely events, maintained content, sought feedback, attended nearly every event, and offered personalized help.
+**Action:** Listened to member needs, proposed a course-selection event during the narrow planning window, and offered personalized schedule guidance through the course-helper program.
 
 **Result:** The club continued serving more than 300 members, and course support helped 15 students plan schedules.
 
@@ -218,9 +218,9 @@ High standards mean making correctness, reproducibility, and maintainability con
 
 **Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
 
-**Task:** Create dependable upstream data and common interfaces without formal authority.
+**Task:** Make reproducibility, leakage prevention, and interface correctness enforceable rather than rely on informal agreement.
 
-**Action:** Delivered a fixed-seed baseline in two days, then added typed schemas, validation, manifests, adapters, tests, and documentation.
+**Action:** Added fixed seeds, typed schemas, cross-table validation, configuration hashes, manifests, ground-truth separation, automated tests, and specification-oriented documentation.
 
 **Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
 
@@ -233,9 +233,9 @@ High standards mean making correctness, reproducibility, and maintainability con
 
 **Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
 
-**Task:** Publish a useful, searchable archive without waiting for the larger platform.
+**Task:** Keep a 551-document public archive correct enough to trust despite the limits of solo proofreading.
 
-**Action:** Built a static site with 551 Markdown/MDX documents, weekly Algolia indexing, and correction paths.
+**Action:** Exposed correction paths, used targeted and AI-assisted review, and when a reader found a Math 4121 definition error, fixed the definition, expanded the notation reference, and credited the reporter.
 
 **Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
 
@@ -252,9 +252,9 @@ Think Big means choosing an architecture or direction that can outlast the first
 
 **Situation:** Isolated algorithm practice did not preserve intuition or implementation details.
 
-**Task:** Turn a course applet into a durable public learning workbook.
+**Task:** Turn one computational-geometry applet into a durable, cross-topic learning workbook rather than leave it as a course artifact.
 
-**Action:** Built and maintained 53 algorithm documents with code, analysis, examples, applications, and references.
+**Action:** Designed a reusable teaching template and expanded it into 53 searchable documents spanning algorithms, data structures, discrete mathematics, and computational geometry.
 
 **Result:** The workbook remains publicly deployed and maintained, with a latest verified content update in August 2026.
 
@@ -267,9 +267,9 @@ Think Big means choosing an architecture or direction that can outlast the first
 
 **Situation:** A teammate needed to publish structured philosophy research connecting thinkers, writings, and concepts.
 
-**Task:** Own the backend, data model, deployment, and coordination while supporting frontend integration.
+**Task:** Build a reusable knowledge structure that could connect a growing body of philosophy research, not just publish a first set of pages.
 
-**Action:** Built Django/PostgreSQL models, APIs, Markdown import, administration, Docker/Nginx deployment, and integration fixes.
+**Action:** Designed hierarchical content, typed intellectual relationships, definition links, tags, search, Markdown import, administration, and deployable APIs as one extensible system.
 
 **Result:** The team publicly deployed a usable site; no reliable audience analytics were retained.
 
@@ -286,9 +286,9 @@ Bias for Action means moving when delay is more expensive than a reversible mist
 
 **Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
 
-**Task:** Create dependable upstream data and common interfaces without formal authority.
+**Task:** Unblock attribution and optimization work immediately with a reversible baseline while approved data remained unavailable.
 
-**Action:** Delivered a fixed-seed baseline in two days, then added typed schemas, validation, manifests, adapters, tests, and documentation.
+**Action:** Delivered a fixed-seed simulation baseline in two days, then hardened it incrementally with validation, manifests, adapters, tests, and documentation.
 
 **Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
 
@@ -301,9 +301,9 @@ Bias for Action means moving when delay is more expensive than a reversible mist
 
 **Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
 
-**Task:** Publish a useful, searchable archive without waiting for the larger platform.
+**Task:** Put useful notes in classmates' hands now instead of waiting months for the larger platform to stabilize.
 
-**Action:** Built a static site with 551 Markdown/MDX documents, weekly Algolia indexing, and correction paths.
+**Action:** Chose the reversible static-site path, published the archive, and added managed search and correction mechanisms while the broader Notechondria idea remained unfinished.
 
 **Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
 
@@ -320,9 +320,9 @@ Frugality is the discipline of extracting capability from limited resources rath
 
 **Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
 
-**Task:** Publish a useful, searchable archive without waiting for the larger platform.
+**Task:** Serve and search hundreds of notes without operating a custom publishing backend or waiting for more infrastructure.
 
-**Action:** Built a static site with 551 Markdown/MDX documents, weekly Algolia indexing, and correction paths.
+**Action:** Reused the existing Markdown corpus in a static Nextra deployment and relied on scheduled Algolia indexing and GitHub correction paths for the recurring work.
 
 **Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
 
@@ -335,9 +335,9 @@ Frugality is the discipline of extracting capability from limited resources rath
 
 **Situation:** A trailer-truck parking task allowed several plausible research paths, but nonlinear dynamics, sparse success, and expensive exploration made every choice a trade-off.
 
-**Task:** Explore trajectory-free deep reinforcement learning without assuming that the cheapest, fastest, or most reliable implementation was automatically the only correct direction.
+**Task:** Extract a defensible conclusion within a course deadline and finite GPU budget rather than spend compute on an unbounded search.
 
-**Action:** The team investigated PPO, DDPG, and DQN paths, built supporting utilities, adapters, and visualizations, and compared outcomes through multiple metrics including convergence, implementation reliability, computational cost, and the knowledge gained from unsuccessful trials.
+**Action:** Simplified the task, compared the available agents and ablations, and stopped broad hyperparameter search when each complex run cost roughly seven RTX 5090 GPU-hours.
 
 **Result:** Straight driving converged while 90-degree steering did not after five million steps. Rather than forcing one definition of success, we used the contrast between paths and metrics to revise the scope and clarify what each approach could establish.
 
@@ -354,9 +354,9 @@ Earn Trust is built through accurate claims, visible limits, and work that other
 
 **Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
 
-**Task:** Create dependable upstream data and common interfaces without formal authority.
+**Task:** Give collaborators interfaces and evidence they could inspect while keeping confidential client data out of the public work.
 
-**Action:** Delivered a fixed-seed baseline in two days, then added typed schemas, validation, manifests, adapters, tests, and documentation.
+**Action:** Documented contracts, added deterministic generation, validation and tests, separated evaluation-only ground truth from features, and stated that the system remained a synthetic pre-production proof of concept.
 
 **Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
 
@@ -369,9 +369,9 @@ Earn Trust is built through accurate claims, visible limits, and work that other
 
 **Situation:** A teammate needed to publish structured philosophy research connecting thinkers, writings, and concepts.
 
-**Task:** Own the backend, data model, deployment, and coordination while supporting frontend integration.
+**Task:** Be dependable about the technical work I owned while accurately separating team roles and evidence limits.
 
-**Action:** Built Django/PostgreSQL models, APIs, Markdown import, administration, Docker/Nginx deployment, and integration fixes.
+**Action:** Built and documented the backend and deployment, coordinated integration, preserved the content provider's authorship, and reported the public deployment without claiming unretained audience analytics.
 
 **Result:** The team publicly deployed a usable site; no reliable audience analytics were retained.
 
@@ -388,9 +388,9 @@ Dive Deep means tracing an outcome through the underlying data, implementation, 
 
 **Situation:** Operational logs and metadata had no labeled failures, obscuring isolated versus correlated problems.
 
-**Task:** Build a reproducible daily detector and communicate auditable evidence without exposing private data.
+**Task:** Trace daily impairment from summary signals to unit history, peers, shared factors, and event-level evidence without supervised labels.
 
-**Action:** Used weekday baselines, leave-one-out peers, tail tests, effect-size thresholds, enrichment, diagnostics, and drill-down views.
+**Action:** Built weekday-adjusted baselines, leave-one-out peer tests, tail and effect-size thresholds, ordered factor enrichment, preserved intermediate diagnostics, and added geographic drill-down views.
 
 **Result:** The notebook produced the required daily reporting interface and event-level diagnostics while preserving disclosure boundaries.
 
@@ -403,9 +403,9 @@ Dive Deep means tracing an outcome through the underlying data, implementation, 
 
 **Situation:** A research path required connecting high-dimensional probability, geometry, and quantum information.
 
-**Task:** Understand the chain behind typical entanglement rather than treat the result as a black box.
+**Task:** Understand the full chain connecting high-dimensional probability, geometry, and quantum information instead of stopping at the headline theorem.
 
-**Action:** Studied the necessary fields and presented intermediate and thesis work.
+**Action:** Studied the prerequisite fields, worked through intermediate arguments, and presented both intermediate research and the final thesis.
 
 **Result:** Completed the year-long path and presented the senior honors thesis on March 26, 2026.
 
@@ -420,9 +420,9 @@ This principle means raising a reasoned objection when the evidence or architect
 
 **Situation:** A trailer-truck parking task allowed several plausible research paths, but nonlinear dynamics, sparse success, and expensive exploration made every choice a trade-off.
 
-**Task:** Explore trajectory-free deep reinforcement learning without assuming that the cheapest, fastest, or most reliable implementation was automatically the only correct direction.
+**Task:** Challenge the original end-to-end trajectory-free scope when experiments contradicted it, then finish the agreed course deliverables around a narrower conclusion.
 
-**Action:** The team investigated PPO, DDPG, and DQN paths, built supporting utilities, adapters, and visualizations, and compared outcomes through multiple metrics including convergence, implementation reliability, computational cost, and the knowledge gained from unsuccessful trials.
+**Action:** Argued from failed steering runs and compute cost for simplifying the task and stopping broad search; then completed the simulation, trained straight-driving agents, demonstration, presentation, and paper.
 
 **Result:** Straight driving converged while 90-degree steering did not after five million steps. Rather than forcing one definition of success, we used the contrast between paths and metrics to revise the scope and clarify what each approach could establish.
 
@@ -435,9 +435,9 @@ This principle means raising a reasoned objection when the evidence or architect
 
 **Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
 
-**Task:** Create dependable upstream data and common interfaces without formal authority.
+**Task:** Push for one reproducible contract instead of accepting incompatible group implementations, while leaving extension points for contributors who chose other paths.
 
-**Action:** Delivered a fixed-seed baseline in two days, then added typed schemas, validation, manifests, adapters, tests, and documentation.
+**Action:** Raised the integration problem, gathered requirements across groups, implemented the shared contract, and continued supporting the active subgroup after the architecture direction was established.
 
 **Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
 
@@ -454,9 +454,9 @@ Deliver Results means producing the outcome that matters under the actual constr
 
 **Situation:** A simulation competition required a three-person team to balance speed and control reliability.
 
-**Task:** Improve performance for the Fall 2020 S1 series.
+**Task:** Convert controller tuning and team support into competitive race performance, not merely a working simulation.
 
-**Action:** Helped manually tune the PID controller, supported performance work, and guided newer participants.
+**Action:** Iteratively helped tune the PID controller for speed and control reliability, supported performance work, and guided newer participants through the series.
 
 **Result:** The team placed second with a 1,104.00-second total and recorded the fastest lap at 77.15 seconds.
 
@@ -469,9 +469,9 @@ Deliver Results means producing the outcome that matters under the actual constr
 
 **Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
 
-**Task:** Create dependable upstream data and common interfaces without formal authority.
+**Task:** Produce usable upstream data and interfaces under confidentiality constraints so the active subgroup could integrate and continue development.
 
-**Action:** Delivered a fixed-seed baseline in two days, then added typed schemas, validation, manifests, adapters, tests, and documentation.
+**Action:** Delivered the baseline in two days and carried it through schemas, adapters, tests, documentation, dashboard work, and cross-group integration rather than stopping at a prototype generator.
 
 **Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
 
@@ -481,16 +481,16 @@ Deliver Results means producing the outcome that matters under the actual constr
 
 ## Strive to be Earth's Best Employer
 
-I interpret this principle through the smaller teams and communities I have actually participated in: creating conditions where people can learn, contribute, and ask for help without unnecessary friction. Supporting junior developers, offering personalized course guidance, writing integration documentation, and responding constructively to corrections are modest but relevant examples. I would not claim organization-scale people leadership; my evidence is at the teammate and community level.
+I interpret this principle through the smaller teams and communities I have actually participated in: creating conditions where people can learn, contribute, and ask for help without unnecessary friction. Guiding newer participants, offering personalized course help, writing integration documentation, and responding constructively to corrections are modest but relevant examples. I would not claim organization-scale people leadership; my evidence is at the teammate and community level.
 
 <details className="principle-example">
 <summary>Chinese Groundbreakers</summary>
 
 **Situation:** Club leaders had reduced capacity during their final semesters, and activity was declining.
 
-**Task:** Keep the club useful and responsive beyond assigned website and media duties.
+**Task:** Keep a reduced-capacity volunteer community responsive and make it easy for members to ask for timely, individualized help.
 
-**Action:** Proposed timely events, maintained content, sought feedback, attended nearly every event, and offered personalized help.
+**Action:** Sought feedback, identified the course-selection window, proposed useful events, maintained shared resources, attended nearly every event, and offered personalized schedule guidance.
 
 **Result:** The club continued serving more than 300 members, and course support helped 15 students plan schedules.
 
@@ -499,17 +499,17 @@ I interpret this principle through the smaller teams and communities I have actu
 </details>
 
 <details className="principle-example">
-<summary>Gray-75</summary>
+<summary>ROAR Autonomous Racing</summary>
 
-**Situation:** A three-person team used a first-person puzzle game to explore an Alzheimer’s narrative.
+**Situation:** A three-person simulation-racing team included newer participants who needed technical support while preparing for the Fall 2020 series.
 
-**Task:** Lead the team and deliver a playable demonstration.
+**Task:** Improve team performance while creating room for newer participants to learn and contribute.
 
-**Action:** Designed scenes, implemented gameplay with Unity and Blender, and supported junior developers.
+**Action:** Combined PID tuning and performance work with direct technical guidance for less-experienced participants rather than optimizing only my own contribution.
 
-**Result:** The team completed a playable demo and video preview.
+**Result:** The team placed second with a 1,104.00-second total and recorded the fastest lap at 77.15 seconds.
 
-[Read the project](/projects/gray-75/)
+[Read the project](/projects/robot-open-autonomous-racing-roar/)
 
 </details>
 
@@ -522,9 +522,9 @@ This principle recognizes that a system's obligations expand as more people, dat
 
 **Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
 
-**Task:** Publish a useful, searchable archive without waiting for the larger platform.
+**Task:** Accept the correction and maintenance obligations created by publishing hundreds of notes, even with a small audience.
 
-**Action:** Built a static site with 551 Markdown/MDX documents, weekly Algolia indexing, and correction paths.
+**Action:** Added public feedback paths and weekly indexing; after a reader reported a mathematical error, corrected it, added context, credited the reporter, and continued targeted review.
 
 **Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
 
@@ -537,9 +537,9 @@ This principle recognizes that a system's obligations expand as more people, dat
 
 **Situation:** Isolated algorithm practice did not preserve intuition or implementation details.
 
-**Task:** Turn a course applet into a durable public learning workbook.
+**Task:** Turn a growing public workbook into maintained teaching material whose explanations, code, applications, and sources remain inspectable.
 
-**Action:** Built and maintained 53 algorithm documents with code, analysis, examples, applications, and references.
+**Action:** Applied a consistent template across 53 documents, kept examples runnable and referenced, added search, and continued verified content maintenance through August 2026.
 
 **Result:** The workbook remains publicly deployed and maintained, with a latest verified content update in August 2026.
 
