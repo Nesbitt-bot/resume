@@ -1,548 +1,180 @@
 ---
-title: Amazon Leadership Principles — evidence guide
-description: Two concise, source-grounded STAR examples for each of Amazon's 16 Leadership Principles.
-eyebrow: Interview reading guide
+title: Amazon Leadership Principles — 8-Principle Story Bank
+description: Eight interview-ready leadership principles with two concise STAR examples for each.
+eyebrow: Interview story bank
 layout: article
 ---
 
-This page is a retrieval guide, not a claim that every example has equal strength. It keeps measured outcomes, negative results, team ownership, and evidence limits explicit.
+This page focuses on the eight Amazon Leadership Principles for which I currently have the clearest, most recent, and most defensible evidence. Each example is organized as a concise Situation, Task, Action, and Result story for later review and revision.
 
-## Customer Obsession
+## 1. Customer Obsession
 
-Customer Obsession means starting from the person who must use the result, then working backward instead of treating implementation as the finish line. In my experience, this means giving classmates an immediately useful learning resource instead of asking them to wait for a perfect platform, and designing reliability analysis from the manager's decisions and dashboard experience backward to the data, metrics, and detection components required to support them.
+### Example 1 — Lecture Note-Sharing Site
 
-<details className="principle-example">
-<summary>NoteNextra / Notechondria</summary>
-
-**Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
-
-**Task:** Give classmates a reliable resource immediately after class instead of making them wait months for a more fully featured application.
-
-**Action:** Worked backward from learner access: published the existing notes as a lightweight static site, then added search, GitHub correction paths, and weekly indexing.
-
-**Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
+- **Situation:** I initially planned to build a feature-rich full-stack note-sharing platform for my classmates.
+- **Task:** After talking with them, I realized what they actually needed was fast and reliable access to updated lecture notes.
+- **Action:** I launched a lightweight static site first with continuous updates after each lecture while developing more advanced features separately.
+- **Result:** My classmates could immediately use the notes for daily review and exams, while their feedback helped me quickly correct errors.
 
 [Read the project](/projects/notenextra-notechondria/)
 
-</details>
+### Example 2 — EV Charging Reliability Dashboard
 
-<details className="principle-example">
-<summary>Reliability Event Detection Case Study</summary>
-
-**Situation:** A manager needed to review network reliability without labeled failures or time to reconstruct the meaning of low-level operational records.
-
-**Task:** Optimize the manager's experience as the product's client by starting with the decisions and drill-downs the delivered dashboard needed to support, then work backward to the analytical components required underneath it.
-
-**Action:** I defined the daily report and interactive dashboard first—dates, affected units, systemic status, candidate correlates, impact ranking, and location-level drill-down—then reverse-mapped each view to the station metrics, historical and peer baselines, statistical tests, factor-enrichment logic, diagnostics, and data transformations needed to make it auditable.
-
-**Result:** The notebook delivered a manager-oriented review interface backed by traceable event diagnostics, while keeping client, dataset, and domain details within the required disclosure boundary.
+- **Situation:** In a 72-hour data-science project, I was asked to diagnose systematic charging failures despite having sparse instructions and no definition of “systematic.”
+- **Task:** I needed to turn the raw data into information that would actually help managers decide who should respond to each problem.
+- **Action:** I classified failures by actionable causes, such as firmware issues for software teams and site-level problems for engineering teams, and built metrics around them.
+- **Result:** I delivered the dashboard on time with daily reports that translated technical failures into operationally useful categories.
 
 [Read the project](/projects/reliability-event-detection-case-study/)
 
-</details>
+---
 
-## Ownership
+## 2. Ownership
 
-Ownership means accepting responsibility for the outcome beyond the narrow boundary of an assigned role. In the MTA Strategy Optimizer, I did not limit myself to the data-science assignment I entered with: I initiated conversations across departments, worked closely with algorithm teams, and analyzed the data model required by each layer so the overall system could integrate. In Chinese Groundbreakers, I similarly continued proposing events, maintaining resources, and helping students when senior leadership had less capacity.
+### Example 1 — MTA Shared Data Model
 
-<details className="principle-example">
-<summary>MTA Strategy Optimizer</summary>
-
-**Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
-
-**Task:** Take responsibility for dependable upstream data and cross-group integration, although both extended beyond my assigned data-science work.
-
-**Action:** Proactively consulted other groups, especially algorithm contributors, mapped each layer's inputs and outputs, and implemented the shared schemas, validation, adapters, tests, and documentation.
-
-**Result:** The active subgroup integrated around the shared interfaces; the mentor called this the most mature implementation and best match for expectations.
+- **Situation:** During the MTA project, I found that different teams were independently developing components based on conflicting interpretations of the data model.
+- **Task:** Although my primary responsibility was optimization, I recognized that leaving the inconsistency unresolved would create major integration problems later.
+- **Action:** I proactively aligned assumptions with team members and created a shared data model, interfaces, and documentation.
+- **Result:** The common structure reduced future rework and allowed independently developed components to integrate more reliably.
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-</details>
+### Example 2 — CS Club
 
-<details className="principle-example">
-<summary>Chinese Groundbreakers</summary>
-
-**Situation:** Club leaders had reduced capacity during their final semesters, and activity was declining.
-
-**Task:** Keep the club useful through graduation, including website, media, and member support outside my assigned event-planning duties.
-
-**Action:** Repeatedly identified time-sensitive gaps, proposed events, maintained content, requested missing media, attended nearly every event, and offered individual course help.
-
-**Result:** The club continued serving more than 300 members, and course support helped 15 students plan schedules.
+- **Situation:** I noticed that many incoming students lacked information about CS courses, research opportunities, and people they could approach for guidance.
+- **Task:** I wanted to address that gap instead of assuming individual students or the department would solve it themselves.
+- **Action:** I helped build a CS community that organized networking, course-information sessions, research seminars, and project sharing.
+- **Result:** Members expanded their networks and several were able to pursue research opportunities they discovered through the community.
 
 [Read the project](/projects/washington-university-chinese-groundbreakers/)
 
-</details>
+---
 
-## Invent and Simplify
+## 3. Invent and Simplify
 
-Invent and Simplify is not novelty for its own sake; it is finding a smaller, clearer system that removes recurring friction. My projects repeatedly move in this direction: I replaced incompatible data-generation work with one reproducible contract in the MTA project, and separated the immediately useful static NoteNextra archive from the more ambitious Notechondria platform so that complexity would not block delivery.
+### Example 1 — Modular MTA Simulation Pipeline
 
-<details className="principle-example">
-<summary>MTA Strategy Optimizer</summary>
-
-**Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
-
-**Task:** Replace incompatible one-off datasets with the smallest reproducible contract that every active group could extend.
-
-**Action:** Delivered a fixed-seed baseline in two days, then consolidated recurring integration needs into typed schemas, manifests, validation, storage adapters, tests, and one documented MTA interface.
-
-**Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
+- **Situation:** While building an advertising optimization system, I found no common data contract and each team was independently producing incompatible data.
+- **Task:** I needed to give the algorithm team a simple and reusable way to test attribution models without waiting for every upstream decision.
+- **Action:** Within one week, I built a modular data-generation pipeline with standardized interfaces, documentation, and adapters.
+- **Result:** The pipeline unblocked algorithm testing immediately while reducing the amount of custom integration and future rework.
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-</details>
+### Example 2 — Simplifying the Notes Platform
 
-<details className="principle-example">
-<summary>NoteNextra / Notechondria</summary>
-
-**Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
-
-**Task:** Separate the immediately useful note archive from the unstable larger platform so complexity would not block delivery.
-
-**Action:** Used a static Nextra site for 551 existing documents and added managed search and correction paths instead of requiring a full custom publishing backend.
-
-**Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
+- **Situation:** I initially used a full-stack application to distribute lecture notes even though most classmates only needed dependable access to the content.
+- **Task:** I wanted to remove unnecessary complexity without sacrificing the value students actually cared about.
+- **Action:** I replaced the immediate delivery path with a simple static site that could publish updated notes directly after each lecture.
+- **Result:** Students received faster and more reliable access while I could respond to errors and feedback much more quickly.
 
 [Read the project](/projects/notenextra-notechondria/)
 
-</details>
+---
 
-## Are Right, A Lot
+## 4. Bias for Action
 
-I do not treat “right” as a fixed position owned by one person. People act under different objectives, constraints, risk tolerances, and evaluation metrics, so a decision that looks inappropriate under one objective may be coherent under another. For me, this principle means actively seeking those perspectives, identifying what each person is optimizing, and comparing alternatives across measures such as cost, reliability, learning value, and implementation risk before committing to a decision.
+### Example 1 — 72-Hour Reliability Project
 
-<details className="principle-example">
-<summary>ATTPDRL</summary>
+- **Situation:** I had only 72 hours to build a reliability dashboard from sparse instructions with no agreed definition of systematic failure.
+- **Task:** I needed to make useful progress without waiting for every ambiguity to be resolved.
+- **Action:** I chose an actionable definition based on which organizational function could resolve each failure type and immediately built the analysis around it.
+- **Result:** I completed the dashboard within the deadline and produced daily systematic-failure reports despite the initial ambiguity.
 
-**Situation:** A trailer-truck parking task allowed several plausible research paths, but nonlinear dynamics, sparse success, and expensive exploration made every choice a trade-off.
+[Read the project](/projects/reliability-event-detection-case-study/)
 
-**Task:** Choose and revise the research direction by comparing evidence across convergence, reliability, compute cost, and learning value—not by defending the original proposal.
+### Example 2 — MTA Under Changing Requirements
 
-**Action:** Tested PPO and DDPG, helped analyze DQN and reward ablations, simplified the task when evidence demanded it, and stopped broad search when each complex agent cost roughly seven GPU-hours.
-
-**Result:** Straight driving converged while 90-degree steering did not after five million steps. Rather than forcing one definition of success, we used the contrast between paths and metrics to revise the scope and clarify what each approach could establish.
-
-[Read the project](/projects/attpdrl/)
-
-</details>
-
-<details className="principle-example">
-<summary>MTA Strategy Optimizer</summary>
-
-**Situation:** Data-science, algorithm, dashboard, and other project groups were developing different layers with different assumptions about the data they needed and the outcomes they were optimizing.
-
-**Task:** Understand what each group was optimizing before deciding on interfaces, rather than assuming my original data-science view was sufficient.
-
-**Action:** Sought perspectives outside my group, analyzed each layer's inputs, outputs, and evaluation concerns, and used the common requirements to design shared schemas and extension points.
-
-**Result:** The active subgroup integrated around a common contract, while the discussions exposed why teams made different choices under different metrics rather than reducing disagreement to one side being right.
+- **Situation:** The MTA project was behind schedule while the data-science and algorithm teams were still discussing requirements that continued to change.
+- **Task:** I needed to unblock model development without committing the team to assumptions that might soon become obsolete.
+- **Action:** I moved ahead with a modular simulation architecture whose adapters allowed later requirements to be incorporated without redesigning the core pipeline.
+- **Result:** The algorithm team could begin testing earlier while later data requirements were added with substantially less disruption.
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-</details>
+---
 
-## Learn and Be Curious
+## 5. Learn and Be Curious
 
-Learn and Be Curious describes how I have approached both formal study and practical infrastructure since high school: I start with a real limitation, explore tools outside what I already know, and keep rebuilding until the system fits the need. Mathematical research took me across probability, geometry, and quantum information; my personal cloud took me from NAS file sharing to FreeBSD jails, Nextcloud, Linux, Docker, portable volumes, and cross-platform services. The lasting motivation is not novelty alone, but the satisfaction of learning a technique by applying it to make daily work more capable and efficient.
+### Example 1 — Mathematics Research
 
-<details className="principle-example">
-<summary>Mathematical Research</summary>
+- **Situation:** In my summer mathematics research, we investigated whether a theorem motivated by quantum physics could extend to a more general mathematical setting.
+- **Task:** I needed to understand unfamiliar concepts deeply enough to determine which assumptions were essential before attempting a proof.
+- **Action:** I systematically studied the underlying definitions, tested examples computationally, and used weekly meetings with my mentor to challenge my understanding.
+- **Result:** That foundation allowed me to explore the generalized problem rigorously and eventually develop the work into my thesis.
 
-**Situation:** A research path required connecting high-dimensional probability, geometry, and quantum information.
+### Example 2 — Self-Taught Infrastructure
 
-**Task:** Learn enough probability, geometry, and quantum information to reconstruct the argument behind typical entanglement rather than quote it as a black box.
-
-**Action:** Studied across the three fields, worked through intermediate results, and presented both intermediate work and the final thesis.
-
-**Result:** Completed the year-long path and presented the senior honors thesis on March 26, 2026.
-
-</details>
-
-<details className="principle-example">
-<summary>Web Development & Personal Infrastructure</summary>
-
-**Situation:** Since high school, I wanted storage that was independent of Baidu Netdisk or Google Drive because cross-country access, latency, and platform constraints did not fit how I used files across devices.
-
-**Task:** Use each operational limitation as a reason to learn a more portable infrastructure model while keeping the service useful.
-
-**Action:** Taught myself FreeBSD jails, then Linux, Docker, volumes, networking, and migration by repeatedly rebuilding Nextcloud and related cross-platform services on changing hardware.
-
-**Result:** The service now runs on my home network, lets me use and share files across platforms and with friends, and can be migrated between suitable Docker hosts in about 30 minutes. More importantly, the long sequence of real migrations turned curiosity about unfamiliar systems into durable operational knowledge.
+- **Situation:** Since high school, I wanted to operate my own online services despite initially having little knowledge of production infrastructure.
+- **Task:** I needed to learn the technologies required to make those services reliable and maintainable.
+- **Action:** I taught myself reverse proxies, containers, networking, deployment, and infrastructure management by repeatedly building and improving the system.
+- **Result:** Over several years, I developed a reliable multi-service infrastructure while gaining practical systems knowledge far beyond my original web-development experience.
 
 [Read the project](/projects/web-development-personal-website/)
 
-</details>
+---
 
-## Hire and Develop the Best
+## 6. Hire and Develop the Best
 
-For my experience, this principle is better understood as raising the capability of the people around me, since I have not yet owned a formal hiring process. I have guided newer participants in ROAR, helped students plan courses through Chinese Groundbreakers, and made team contributions easier through documentation and shared interfaces. The evidence is strongest in mentoring and enablement, not hiring decisions.
+### Example 1 — Developing Students Through the CS Club
 
-<details className="principle-example">
-<summary>MTA Strategy Optimizer</summary>
-
-**Situation:** Contributors across a 25-person project were producing incompatible data and implementations, and I had no formal authority over them.
-
-**Task:** Raise the active subgroup's capability by making correct integration easier, not by keeping the architecture in my own head.
-
-**Action:** Asked contributors what their groups needed, converted those needs into typed contracts and extension points, and supplied tests, adapters, and specification-oriented documentation they could use independently.
-
-**Result:** The active subgroup adopted the shared interfaces; the mentor selected my implementation as the project's most mature product and best match for expectations.
-
-[Read the project](/projects/mta-strategy-optimizer/)
-
-</details>
-
-<details className="principle-example">
-<summary>Chinese Groundbreakers</summary>
-
-**Situation:** Club leaders had reduced capacity during their final semesters, and activity was declining.
-
-**Task:** Help members make better academic decisions through individual support, not only run general events.
-
-**Action:** Listened to member needs, proposed a course-selection event during the narrow planning window, and offered personalized schedule guidance through the course-helper program.
-
-**Result:** The club continued serving more than 300 members, and course support helped 15 students plan schedules.
+- **Situation:** Many newer CS students lacked both professional networks and knowledge about available academic and research opportunities.
+- **Task:** I wanted the club to help students develop rather than simply organize social activities.
+- **Action:** I connected experienced students with newer members through research seminars, course sessions, project sharing, and networking opportunities.
+- **Result:** Members developed stronger networks and several pursued research opportunities they learned about through the community.
 
 [Read the project](/projects/washington-university-chinese-groundbreakers/)
 
-</details>
+### Example 2 — Developing MTA Team Members
 
-## Insist on the Highest Standards
-
-High standards mean making correctness, reproducibility, and maintainability concrete rather than merely asking people to care more. I express this through typed schemas, validation, tests, documented contracts, and visible correction mechanisms. The MTA project and NoteNextra also taught me that standards include acknowledging limitations and repairing errors, not hiding them behind a polished presentation.
-
-<details className="principle-example">
-<summary>MTA Strategy Optimizer</summary>
-
-**Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
-
-**Task:** Make reproducibility, leakage prevention, and interface correctness enforceable rather than rely on informal agreement.
-
-**Action:** Added fixed seeds, typed schemas, cross-table validation, configuration hashes, manifests, ground-truth separation, automated tests, and specification-oriented documentation.
-
-**Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
+- **Situation:** In the MTA project, several members worked independently and had limited experience integrating their work into a larger full-stack system.
+- **Task:** I wanted to help them contribute effectively while ensuring that knowledge would remain available to future team members.
+- **Action:** I held one-to-one discussions to understand their blockers, shared relevant technical resources, and documented the architecture and integration process in detail.
+- **Result:** Existing members could integrate their work more effectively and new members had documentation that allowed them to catch up much faster.
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-</details>
+---
 
-<details className="principle-example">
-<summary>NoteNextra / Notechondria</summary>
+## 7. Insist on the Highest Standards
 
-**Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
+### Example 1 — MTA Engineering Standards
 
-**Task:** Keep a 551-document public archive correct enough to trust despite the limits of solo proofreading.
-
-**Action:** Exposed correction paths, used targeted and AI-assisted review, and when a reader found a Math 4121 definition error, fixed the definition, expanded the notation reference, and credited the reporter.
-
-**Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
-
-[Read the project](/projects/notenextra-notechondria/)
-
-</details>
-
-## Think Big
-
-Think Big means choosing an architecture or direction that can outlast the first deliverable while still grounding it in useful work today. My personal infrastructure grew from a website into a portable self-hosted data and service layer, while NoteNextra evolved toward Notechondria's broader idea of a personal context gateway. These projects reflect my tendency to see individual tools as parts of longer-lived systems.
-
-<details className="principle-example">
-<summary>Applets for Algorithms</summary>
-
-**Situation:** Isolated algorithm practice did not preserve intuition or implementation details.
-
-**Task:** Turn one computational-geometry applet into a durable, cross-topic learning workbook rather than leave it as a course artifact.
-
-**Action:** Designed a reusable teaching template and expanded it into 53 searchable documents spanning algorithms, data structures, discrete mathematics, and computational geometry.
-
-**Result:** The workbook remains publicly deployed and maintained, with a latest verified content update in August 2026.
-
-[Read the project](/projects/applets-for-algorithms/)
-
-</details>
-
-<details className="principle-example">
-<summary>SophiasPath</summary>
-
-**Situation:** A teammate needed to publish structured philosophy research connecting thinkers, writings, and concepts.
-
-**Task:** Build a reusable knowledge structure that could connect a growing body of philosophy research, not just publish a first set of pages.
-
-**Action:** Designed hierarchical content, typed intellectual relationships, definition links, tags, search, Markdown import, administration, and deployable APIs as one extensible system.
-
-**Result:** The team publicly deployed a usable site; no reliable audience analytics were retained.
-
-[Read the project](/projects/sophiaspath/)
-
-</details>
-
-## Bias for Action
-
-Bias for Action means moving when delay is more expensive than a reversible mistake, while preserving a way to test and correct the decision. I demonstrated this by producing the first reproducible MTA simulation baseline in two days and by publishing NoteNextra as a useful static archive instead of waiting for the complete platform. My best version of speed is an inspectable first step, not an irreversible shortcut.
-
-<details className="principle-example">
-<summary>MTA Strategy Optimizer</summary>
-
-**Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
-
-**Task:** Unblock attribution and optimization work immediately with a reversible baseline while approved data remained unavailable.
-
-**Action:** Delivered a fixed-seed simulation baseline in two days, then hardened it incrementally with validation, manifests, adapters, tests, and documentation.
-
-**Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
+- **Situation:** The MTA project initially consisted of independently developed code and datasets that worked individually but did not meet my expectations for a maintainable integrated system.
+- **Task:** I wanted the project to produce reproducible and dependable results rather than merely demonstrate that each individual component worked.
+- **Action:** I aligned the teams, integrated their components into a common repository, standardized interfaces, and created detailed documentation.
+- **Result:** The project became a more reproducible and maintainable system with fewer hidden integration assumptions and a clearer standard for future development.
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-</details>
+### Example 2 — Reinforcement-Learning Parking Project
 
-<details className="principle-example">
-<summary>NoteNextra / Notechondria</summary>
-
-**Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
-
-**Task:** Put useful notes in classmates' hands now instead of waiting months for the larger platform to stabilize.
-
-**Action:** Chose the reversible static-site path, published the archive, and added managed search and correction mechanisms while the broader Notechondria idea remained unfinished.
-
-**Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
-
-[Read the project](/projects/notenextra-notechondria/)
-
-</details>
-
-## Frugality
-
-Frugality is the discipline of extracting capability from limited resources rather than treating more infrastructure, money, or people as the default answer. My self-hosted platform relies on open-source and portable components, circtime experiments with backend-free scheduled monitoring, and several public sites use static deployment where a permanent server would add little value. Constraints often force me to make the system simpler and more transferable.
-
-<details className="principle-example">
-<summary>NoteNextra / Notechondria</summary>
-
-**Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
-
-**Task:** Serve and search hundreds of notes without operating a custom publishing backend or waiting for more infrastructure.
-
-**Action:** Reused the existing Markdown corpus in a static Nextra deployment and relied on scheduled Algolia indexing and GitHub correction paths for the recurring work.
-
-**Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
-
-[Read the project](/projects/notenextra-notechondria/)
-
-</details>
-
-<details className="principle-example">
-<summary>ATTPDRL</summary>
-
-**Situation:** A trailer-truck parking task allowed several plausible research paths, but nonlinear dynamics, sparse success, and expensive exploration made every choice a trade-off.
-
-**Task:** Extract a defensible conclusion within a course deadline and finite GPU budget rather than spend compute on an unbounded search.
-
-**Action:** Simplified the task, compared the available agents and ablations, and stopped broad hyperparameter search when each complex run cost roughly seven RTX 5090 GPU-hours.
-
-**Result:** Straight driving converged while 90-degree steering did not after five million steps. Rather than forcing one definition of success, we used the contrast between paths and metrics to revise the scope and clarify what each approach could establish.
+- **Situation:** In our autonomous trailer-parking project, the reinforcement-learning model initially showed acceptable metrics that could have been sufficient for the assignment.
+- **Task:** I wanted to verify that those metrics represented genuinely useful learned behavior rather than simply presenting a successful-looking result.
+- **Action:** I inspected the trajectories and training behavior, discovered substantial environment overfitting, and investigated the issue with my teammates and related literature.
+- **Result:** We documented the limitation in our ablation analysis and identified trajectory planning as an important direction for improving the system rather than overstating the RL results.
 
 [Read the project](/projects/attpdrl/)
 
-</details>
+---
 
-## Earn Trust
+## 8. Think Big
 
-Earn Trust is built through accurate claims, visible limits, and work that other people can inspect. In my projects, that means crediting reader corrections, documenting negative experimental results, preserving confidentiality boundaries, and distinguishing a working prototype from a validated production system. I have learned that reliability and candor matter more than sounding certain, especially when collaborators depend on my interfaces or conclusions.
+### Example 1 — Generalizing the MTA Platform
 
-<details className="principle-example">
-<summary>MTA Strategy Optimizer</summary>
-
-**Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
-
-**Task:** Give collaborators interfaces and evidence they could inspect while keeping confidential client data out of the public work.
-
-**Action:** Documented contracts, added deterministic generation, validation and tests, separated evaluation-only ground truth from features, and stated that the system remained a synthetic pre-production proof of concept.
-
-**Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
+- **Situation:** The initial MTA requirement could have been solved with a pipeline tailored to one fixed advertising dataset.
+- **Task:** I wanted to create a foundation that could eventually support different providers, campaigns, regions, and changing business requirements.
+- **Action:** I designed modular provider adapters and extensible data models so new dimensions and attribution methods could be added without rebuilding the system.
+- **Result:** The architecture supported later requirements with much less rework and turned a one-off pipeline into a foundation for broader attribution and optimization experiments.
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-</details>
+### Example 2 — Building a CS Community
 
-<details className="principle-example">
-<summary>SophiasPath</summary>
-
-**Situation:** A teammate needed to publish structured philosophy research connecting thinkers, writings, and concepts.
-
-**Task:** Be dependable about the technical work I owned while accurately separating team roles and evidence limits.
-
-**Action:** Built and documented the backend and deployment, coordinated integration, preserved the content provider's authorship, and reported the public deployment without claiming unretained audience analytics.
-
-**Result:** The team publicly deployed a usable site; no reliable audience analytics were retained.
-
-[Read the project](/projects/sophiaspath/)
-
-</details>
-
-## Dive Deep
-
-Dive Deep means tracing an outcome through the underlying data, implementation, and assumptions rather than stopping at a dashboard or summary metric. The reliability case study required separating weekday demand, station history, peer behavior, and factor enrichment; my infrastructure work required understanding routing, storage, migration, and recovery together. I am most useful when I can move between the system-level picture and the exact mechanism producing it.
-
-<details className="principle-example">
-<summary>Reliability Event Detection</summary>
-
-**Situation:** Operational logs and metadata had no labeled failures, obscuring isolated versus correlated problems.
-
-**Task:** Trace daily impairment from summary signals to unit history, peers, shared factors, and event-level evidence without supervised labels.
-
-**Action:** Built weekday-adjusted baselines, leave-one-out peer tests, tail and effect-size thresholds, ordered factor enrichment, preserved intermediate diagnostics, and added geographic drill-down views.
-
-**Result:** The notebook produced the required daily reporting interface and event-level diagnostics while preserving disclosure boundaries.
-
-[Read the project](/projects/reliability-event-detection-case-study/)
-
-</details>
-
-<details className="principle-example">
-<summary>Mathematical Research</summary>
-
-**Situation:** A research path required connecting high-dimensional probability, geometry, and quantum information.
-
-**Task:** Understand the full chain connecting high-dimensional probability, geometry, and quantum information instead of stopping at the headline theorem.
-
-**Action:** Studied the prerequisite fields, worked through intermediate arguments, and presented both intermediate research and the final thesis.
-
-**Result:** Completed the year-long path and presented the senior honors thesis on March 26, 2026.
-
-</details>
-
-## Have Backbone; Disagree and Commit
-
-This principle means raising a reasoned objection when the evidence or architecture points elsewhere, then supporting the final direction once a decision is made. My experience appears in narrowing projects after failed experiments, resisting incompatible one-off implementations in favor of shared contracts, and retaining a proven production monitor while circtime remained unvalidated. I try to make disagreement specific and testable rather than personal.
-
-<details className="principle-example">
-<summary>ATTPDRL</summary>
-
-**Situation:** A trailer-truck parking task allowed several plausible research paths, but nonlinear dynamics, sparse success, and expensive exploration made every choice a trade-off.
-
-**Task:** Challenge the original end-to-end trajectory-free scope when experiments contradicted it, then finish the agreed course deliverables around a narrower conclusion.
-
-**Action:** Argued from failed steering runs and compute cost for simplifying the task and stopping broad search; then completed the simulation, trained straight-driving agents, demonstration, presentation, and paper.
-
-**Result:** Straight driving converged while 90-degree steering did not after five million steps. Rather than forcing one definition of success, we used the contrast between paths and metrics to revise the scope and clarify what each approach could establish.
-
-[Read the project](/projects/attpdrl/)
-
-</details>
-
-<details className="principle-example">
-<summary>MTA Strategy Optimizer</summary>
-
-**Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
-
-**Task:** Push for one reproducible contract instead of accepting incompatible group implementations, while leaving extension points for contributors who chose other paths.
-
-**Action:** Raised the integration problem, gathered requirements across groups, implemented the shared contract, and continued supporting the active subgroup after the architecture direction was established.
-
-**Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
-
-[Read the project](/projects/mta-strategy-optimizer/)
-
-</details>
-
-## Deliver Results
-
-Deliver Results means producing the outcome that matters under the actual constraints, not merely completing activity that resembles progress. My strongest examples have concrete endpoints: a deployed archive, a playable game, an integrated data contract, a daily reliability report, or a migration that can be repeated in about 30 minutes. I also distinguish delivery from success when a pipeline runs but the scientific or operational result is still inadequate.
-
-<details className="principle-example">
-<summary>ROAR Autonomous Racing</summary>
-
-**Situation:** A simulation competition required a three-person team to balance speed and control reliability.
-
-**Task:** Convert controller tuning and team support into competitive race performance, not merely a working simulation.
-
-**Action:** Iteratively helped tune the PID controller for speed and control reliability, supported performance work, and guided newer participants through the series.
-
-**Result:** The team placed second with a 1,104.00-second total and recorded the fastest lap at 77.15 seconds.
-
-[Read the project](/projects/robot-open-autonomous-racing-roar/)
-
-</details>
-
-<details className="principle-example">
-<summary>MTA Strategy Optimizer</summary>
-
-**Situation:** A 25-person project lacked shared data contracts while approved source data was unavailable.
-
-**Task:** Produce usable upstream data and interfaces under confidentiality constraints so the active subgroup could integrate and continue development.
-
-**Action:** Delivered the baseline in two days and carried it through schemas, adapters, tests, documentation, dashboard work, and cross-group integration rather than stopping at a prototype generator.
-
-**Result:** The active subgroup integrated around the interfaces; the mentor called this the most mature implementation and best match for expectations.
-
-[Read the project](/projects/mta-strategy-optimizer/)
-
-</details>
-
-## Strive to be Earth's Best Employer
-
-I interpret this principle through the smaller teams and communities I have actually participated in: creating conditions where people can learn, contribute, and ask for help without unnecessary friction. Guiding newer participants, offering personalized course help, writing integration documentation, and responding constructively to corrections are modest but relevant examples. I would not claim organization-scale people leadership; my evidence is at the teammate and community level.
-
-<details className="principle-example">
-<summary>Chinese Groundbreakers</summary>
-
-**Situation:** Club leaders had reduced capacity during their final semesters, and activity was declining.
-
-**Task:** Keep a reduced-capacity volunteer community responsive and make it easy for members to ask for timely, individualized help.
-
-**Action:** Sought feedback, identified the course-selection window, proposed useful events, maintained shared resources, attended nearly every event, and offered personalized schedule guidance.
-
-**Result:** The club continued serving more than 300 members, and course support helped 15 students plan schedules.
+- **Situation:** I realized that helping individual students find individual opportunities would not solve the broader problem of fragmented information and weak connections within the CS community.
+- **Task:** I wanted to create an environment where students could continuously help one another discover resources and opportunities.
+- **Action:** I helped build a club that connected students through recurring research seminars, course guidance, project sharing, and networking.
+- **Result:** Instead of helping only a few individuals, the community became a reusable network through which many students could expand their connections and pursue new opportunities.
 
 [Read the project](/projects/washington-university-chinese-groundbreakers/)
-
-</details>
-
-<details className="principle-example">
-<summary>ROAR Autonomous Racing</summary>
-
-**Situation:** A three-person simulation-racing team included newer participants who needed technical support while preparing for the Fall 2020 series.
-
-**Task:** Improve team performance while creating room for newer participants to learn and contribute.
-
-**Action:** Combined PID tuning and performance work with direct technical guidance for less-experienced participants rather than optimizing only my own contribution.
-
-**Result:** The team placed second with a 1,104.00-second total and recorded the fastest lap at 77.15 seconds.
-
-[Read the project](/projects/robot-open-autonomous-racing-roar/)
-
-</details>
-
-## Success and Scale Bring Broad Responsibility
-
-This principle recognizes that a system's obligations expand as more people, data, or infrastructure depend on it. My work reflects this through privacy boundaries in the reliability study, correction and attribution mechanisms in public educational material, and security, backup, and migration planning in personal infrastructure. Even at small scale, publishing or operating a system creates responsibilities that do not exist in a private prototype.
-
-<details className="principle-example">
-<summary>NoteNextra / Notechondria</summary>
-
-**Situation:** Hundreds of course notes could help learners, but a larger publishing system was not stable enough.
-
-**Task:** Accept the correction and maintenance obligations created by publishing hundreds of notes, even with a small audience.
-
-**Action:** Added public feedback paths and weekly indexing; after a reader reported a mathematical error, corrected it, added context, credited the reporter, and continued targeted review.
-
-**Result:** The archive serves about 10 weekly users; a reader-reported Math 4121 error was corrected and credited.
-
-[Read the project](/projects/notenextra-notechondria/)
-
-</details>
-
-<details className="principle-example">
-<summary>Applets for Algorithms</summary>
-
-**Situation:** Isolated algorithm practice did not preserve intuition or implementation details.
-
-**Task:** Turn a growing public workbook into maintained teaching material whose explanations, code, applications, and sources remain inspectable.
-
-**Action:** Applied a consistent template across 53 documents, kept examples runnable and referenced, added search, and continued verified content maintenance through August 2026.
-
-**Result:** The workbook remains publicly deployed and maintained, with a latest verified content update in August 2026.
-
-[Read the project](/projects/applets-for-algorithms/)
-
-</details>
