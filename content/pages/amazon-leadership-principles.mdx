@@ -1,11 +1,11 @@
 ---
-title: Amazon Leadership Principles — 8-Principle Story Bank
-description: Eight interview-ready leadership principles with two concise STAR examples for each.
+title: Amazon Leadership Principles — 16-Principle Story Bank
+description: Sixteen interview-ready leadership principles with two concise STAR examples for each.
 eyebrow: Interview story bank
 layout: article
 ---
 
-This page focuses on the eight Amazon Leadership Principles for which I currently have the clearest, most recent, and most defensible evidence. Each example is organized as a concise Situation, Task, Action, and Result story for later review and revision.
+This page organizes all sixteen Amazon Leadership Principles into a focused interview story bank. Each principle includes two concise Situation, Task, Action, and Result examples for later review and revision.
 
 ## 1. Customer Obsession
 
@@ -178,3 +178,179 @@ This page focuses on the eight Amazon Leadership Principles for which I currentl
 - **Result:** Instead of helping only a few individuals, the community became a reusable network through which many students could expand their connections and pursue new opportunities.
 
 [Read the project](/projects/washington-university-chinese-groundbreakers/)
+
+---
+
+## 9. Are Right, A Lot
+
+### Example 1 — EV Charging Reliability Case
+
+- **Situation:** In the 72-hour charging-reliability project, there was no labeled definition of systematic failure and several reasonable ways to interpret the problem.
+- **Task:** I needed to choose a definition that would produce useful conclusions despite incomplete information.
+- **Action:** I examined the available data and reframed systematic failures around shared causes and which operational team could actually resolve them.
+- **Result:** That reasoning gave me a consistent classification framework and allowed me to deliver an actionable daily reliability dashboard on time.
+
+[Read the project](/projects/reliability-event-detection-case-study/)
+
+### Example 2 — MTA Model Decisions
+
+- **Situation:** During the MTA project, team members sometimes proposed different data structures or modeling approaches without enough evidence to determine which was better.
+- **Task:** I needed to help the team make decisions without relying only on personal preference.
+- **Action:** I clarified the assumptions behind each approach, implemented alternatives when practical, and compared their behavior using reproducible experiments.
+- **Result:** We could make technical decisions based on evidence while preserving useful ideas from multiple approaches.
+
+[Read the project](/projects/mta-strategy-optimizer/)
+
+---
+
+## 10. Frugality
+
+### Example 1 — Modular MTA Simulator
+
+- **Situation:** The MTA team needed synthetic datasets for several attribution experiments but did not have the time or resources to build a separate simulator for every provider and requirement.
+- **Task:** I needed to support many experiments without repeatedly rebuilding the data-generation system.
+- **Action:** I created one modular simulator with reusable interfaces and adapters that could represent different providers and additional features.
+- **Result:** The team could test multiple scenarios using the same infrastructure while reducing duplicated development and future maintenance.
+
+[Read the project](/projects/mta-strategy-optimizer/)
+
+### Example 2 — Lecture Notes Site
+
+- **Situation:** I originally planned a full-stack application even though my classmates mainly wanted reliable access to lecture notes.
+- **Task:** I wanted to deliver the useful part of the product without spending unnecessary development effort on features they did not yet need.
+- **Action:** I used a lightweight static site and automated deployment instead of making the full application a prerequisite for publishing content.
+- **Result:** I delivered the service much earlier with substantially less complexity while continuing advanced development only where it added value.
+
+[Read the project](/projects/notenextra-notechondria/)
+
+---
+
+## 11. Earn Trust
+
+### Example 1 — MTA Team Integration
+
+- **Situation:** In the MTA project, team members were working independently and had different technical backgrounds and assumptions about how their components should connect.
+- **Task:** I needed to create enough transparency and shared understanding for people to rely on one another's work.
+- **Action:** I held individual discussions to understand their needs, documented interfaces and decisions carefully, and made my own pipeline easy for others to inspect and reproduce.
+- **Result:** Team members could integrate their components more confidently, and the documentation made project knowledge accessible even when membership changed.
+
+[Read the project](/projects/mta-strategy-optimizer/)
+
+### Example 2 — CS Club
+
+- **Situation:** New students often did not know whom they could approach for reliable advice about courses, projects, or research.
+- **Task:** I wanted the club to become a community where students felt comfortable asking for help and sharing information.
+- **Action:** I regularly connected newer students with experienced members and organized sessions where people openly shared their experiences and available resources.
+- **Result:** Members increasingly used the community to expand their networks and pursue academic and research opportunities.
+
+[Read the project](/projects/washington-university-chinese-groundbreakers/)
+
+---
+
+## 12. Dive Deep
+
+### Example 1 — EV Charging Reliability Analysis
+
+- **Situation:** The charging dataset contained many apparent failures, but aggregate error rates alone could not distinguish isolated station problems from genuinely systematic issues.
+- **Task:** I needed to determine what was actually driving abnormal reliability rather than simply flagging stations with high failure counts.
+- **Action:** I examined station-day behavior against historical baselines and then investigated shared dimensions such as firmware, reader type, and site-level patterns.
+- **Result:** The analysis separated independent anomalies from broader systematic patterns and produced more useful diagnostic information for the dashboard.
+
+[Read the project](/projects/reliability-event-detection-case-study/)
+
+### Example 2 — Reinforcement-Learning Parking
+
+- **Situation:** Our autonomous-parking model produced improving reward metrics that initially suggested the reinforcement-learning approach was working.
+- **Task:** I wanted to understand what behaviors the model had actually learned rather than trusting the aggregate score.
+- **Action:** I examined trajectories and training behavior in detail and discovered that the agent was repeatedly exploiting limited forward-driving patterns instead of learning robust parking.
+- **Result:** We identified environment overfitting that the headline metrics concealed and used that insight to refine our conclusions and future-work direction.
+
+[Read the project](/projects/attpdrl/)
+
+---
+
+## 13. Have Backbone; Disagree and Commit
+
+### Example 1 — Challenging the MTA Data Process
+
+- **Situation:** In the MTA project, the existing workflow allowed each group to create its own data format and mock datasets independently.
+- **Task:** I believed continuing that approach would create serious integration and reproducibility problems even though changing it required additional work outside my immediate task.
+- **Action:** I raised the issue with the team, explained the downstream risks, and pushed for a shared data contract and reproducible pipeline while incorporating feedback into the final design.
+- **Result:** Once we agreed on the direction, I committed to implementing the shared infrastructure and helped the teams move forward under the common model.
+
+[Read the project](/projects/mta-strategy-optimizer/)
+
+### Example 2 — Resolving Competing Technical Approaches
+
+- **Situation:** When teammates and I disagreed about implementation choices, simply choosing one person's preference risked either delaying the project or discarding a potentially useful idea.
+- **Task:** I needed to express my technical concerns clearly while still keeping the team moving toward a shared decision.
+- **Action:** I stated my assumptions, challenged the alternatives with specific technical questions, and where feasible tested both approaches so the evidence could resolve the disagreement.
+- **Result:** After the decision was made, I supported the selected approach and focused on integrating the strongest parts into the final system.
+
+[Read the project](/projects/mta-strategy-optimizer/)
+
+---
+
+## 14. Deliver Results
+
+### Example 1 — 72-Hour EV Reliability Dashboard
+
+- **Situation:** I received a 72-hour case study requiring a complete reliability analysis, dashboard, visualizations, and reusable detection function from an unfamiliar charging dataset.
+- **Task:** I needed to turn an ambiguous problem into a reviewable end-to-end result within the fixed deadline.
+- **Action:** I worked backward from the required dashboard, established the definitions and metrics first, completed the detection algorithms next, and reserved the final stage for validation and documentation.
+- **Result:** I delivered the complete dashboard and daily reliability analysis within the 72-hour window.
+
+[Read the project](/projects/reliability-event-detection-case-study/)
+
+### Example 2 — MTA First-Week Pipeline
+
+- **Situation:** The MTA algorithm team could not properly test its attribution models because the project lacked reproducible input data.
+- **Task:** I needed to remove that dependency quickly so algorithm development could continue.
+- **Action:** I prioritized the essential interfaces and built the first modular data-generation pipeline within one week rather than waiting for every future requirement to be finalized.
+- **Result:** The algorithm team could immediately begin validating its models while the pipeline continued evolving to support more sophisticated requirements.
+
+[Read the project](/projects/mta-strategy-optimizer/)
+
+---
+
+## 15. Strive to be Earth's Best Employer
+
+### Example 1 — Developing MTA Team Members
+
+- **Situation:** Several MTA team members had limited experience with full-stack integration and sometimes struggled to understand how their individual work fit into the larger system.
+- **Task:** I wanted them to become more independent contributors rather than simply taking their components and integrating everything myself.
+- **Action:** I held one-to-one conversations about their blockers, shared learning resources, explained the surrounding architecture, and documented common workflows.
+- **Result:** Team members had clearer paths for contributing independently, while future members could use the same documentation to onboard more quickly.
+
+[Read the project](/projects/mta-strategy-optimizer/)
+
+### Example 2 — CS Club Community
+
+- **Situation:** New CS students often entered the university without the networks or institutional knowledge that more experienced students already had.
+- **Task:** I wanted to create an environment where access to opportunities depended less on whom someone happened to know.
+- **Action:** I organized information sessions, research discussions, project sharing, and connections between incoming and experienced students.
+- **Result:** Students gained broader access to knowledge and networks, and some members used those connections to pursue research opportunities.
+
+[Read the project](/projects/washington-university-chinese-groundbreakers/)
+
+---
+
+## 16. Success and Scale Bring Broad Responsibility
+
+### Example 1 — Maintaining Shared MTA Infrastructure
+
+- **Situation:** As more components of the MTA project began depending on the shared data pipeline, changes to my code could increasingly affect work across the entire team.
+- **Task:** I needed to treat the pipeline as shared infrastructure rather than optimizing only for my own development speed.
+- **Action:** I introduced stable interfaces, reproducible generation, documentation, and modular adapters so future changes could be made without unexpectedly breaking downstream users.
+- **Result:** As the project expanded, the common infrastructure remained easier to extend and reduced the risks that came from increased dependency on a single pipeline.
+
+[Read the project](/projects/mta-strategy-optimizer/)
+
+### Example 2 — Long-Term Self-Hosted Infrastructure
+
+- **Situation:** What began as personal experimentation with web services gradually grew into infrastructure that I depended on for multiple applications and information-sharing workflows.
+- **Task:** As its scope increased, I needed to consider reliability, maintainability, security, and the consequences of failures rather than treating it as a hobby deployment.
+- **Action:** I progressively adopted containers, reverse proxies, monitoring, backups, and more maintainable deployment practices while migrating workloads to managed services when self-hosting no longer justified the operational cost.
+- **Result:** I learned to evaluate infrastructure not only by whether I could build it, but by whether I could responsibly maintain it as its usage and dependencies grew.
+
+[Read the project](/projects/web-development-personal-website/)
