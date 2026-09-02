@@ -33,7 +33,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 1 — MTA Shared Data Model
 
-- **Situation:** During the MTA project, I found that different teams were independently developing components based on conflicting interpretations of the data model.
+- **Situation:** We were building a system to reconstruct advertising journeys and divide conversion and revenue credit among the campaigns, channels, and ad groups that appeared before a purchase. Because client data was unavailable, separate teams were also creating synthetic inputs and attribution components from conflicting interpretations of the path schema.
 - **Task:** Although my primary responsibility was optimization, I recognized that leaving the inconsistency unresolved would create major integration problems later.
 - **Action:** I proactively aligned assumptions with team members and created a shared data model, interfaces, and documentation.
 - **Result:** The common structure reduced future rework and allowed independently developed components to integrate more reliably.
@@ -42,7 +42,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 2 — CS Club
 
-- **Situation:** I noticed that many incoming students lacked information about CS courses, research opportunities, and people they could approach for guidance.
+- **Situation:** Washington University Chinese Groundbreakers grew from a small founding group into a community serving more than 300 students. At that scale, many incoming students still lacked reliable information about CS courses, research opportunities, and people they could approach for guidance.
 - **Task:** I wanted to address that gap instead of assuming individual students or the department would solve it themselves.
 - **Action:** I helped build a CS community that organized networking, course-information sessions, research seminars, and project sharing.
 - **Result:** Members expanded their networks and several were able to pursue research opportunities they discovered through the community.
@@ -55,7 +55,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 1 — Modular MTA Simulation Pipeline
 
-- **Situation:** While building an advertising optimization system, I found no common data contract and each team was independently producing incompatible data.
+- **Situation:** The MTA project needed to assign conversion and revenue credit across the sequence of advertising touchpoints preceding a purchase, then use that evidence to seed campaign and ad-group budgets. Client data was unavailable, and each team was independently producing incompatible synthetic paths and schemas.
 - **Task:** I needed to give the algorithm team a simple and reusable way to test attribution models without waiting for every upstream decision.
 - **Action:** Within one week, I built a modular data-generation pipeline with standardized interfaces, documentation, and adapters.
 - **Result:** The pipeline unblocked algorithm testing immediately while reducing the amount of custom integration and future rework.
@@ -86,7 +86,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 2 — MTA Under Changing Requirements
 
-- **Situation:** The MTA project was behind schedule while the data-science and algorithm teams were still discussing requirements that continued to change.
+- **Situation:** The MTA project was behind schedule, client journey data was unavailable, and the data-science and algorithm teams were still changing how touchpoints, paths, conversions, and revenue should be represented.
 - **Task:** I needed to unblock model development without committing the team to assumptions that might soon become obsolete.
 - **Action:** I moved ahead with a modular simulation architecture whose adapters allowed later requirements to be incorporated without redesigning the core pipeline.
 - **Result:** The algorithm team could begin testing earlier while later data requirements were added with substantially less disruption.
@@ -119,7 +119,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 1 — Developing Students Through the CS Club
 
-- **Situation:** Many newer CS students lacked both professional networks and knowledge about available academic and research opportunities.
+- **Situation:** In a club that had expanded from a small founding group to more than 300 members, many newer CS students still lacked both professional networks and knowledge about available academic and research opportunities.
 - **Task:** I wanted the club to help students develop rather than simply organize social activities.
 - **Action:** I connected experienced students with newer members through research seminars, course sessions, project sharing, and networking opportunities.
 - **Result:** Members developed stronger networks and several pursued research opportunities they learned about through the community.
@@ -128,7 +128,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 2 — Developing MTA Team Members
 
-- **Situation:** In the MTA project, several members worked independently and had limited experience integrating their work into a larger full-stack system.
+- **Situation:** The MTA system had to connect synthetic journey generation, attribution models that divided conversion and revenue credit among touchpoints, and a budget-seeding module. Several members owned isolated pieces and had limited experience integrating them into one reproducible system.
 - **Task:** I wanted to help them contribute effectively while ensuring that knowledge would remain available to future team members.
 - **Action:** I held one-to-one discussions to understand their blockers, shared relevant technical resources, and documented the architecture and integration process in detail.
 - **Result:** Existing members could integrate their work more effectively and new members had documentation that allowed them to catch up much faster.
@@ -141,7 +141,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 1 — MTA Engineering Standards
 
-- **Situation:** The MTA project initially consisted of independently developed code and datasets that worked individually but did not meet my expectations for a maintainable integrated system.
+- **Situation:** The MTA project initially consisted of independently developed synthetic datasets, attribution models, and strategy code. Individual pieces ran, but their incompatible path definitions and outputs could not yet support a reproducible comparison or budget recommendation.
 - **Task:** I wanted the project to produce reproducible and dependable results rather than merely demonstrate that each individual component worked.
 - **Action:** I aligned the teams, integrated their components into a common repository, standardized interfaces, and created detailed documentation.
 - **Result:** The project became a more reproducible and maintainable system with fewer hidden integration assumptions and a clearer standard for future development.
@@ -163,7 +163,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 1 — Generalizing the MTA Platform
 
-- **Situation:** The initial MTA requirement could have been solved with a pipeline tailored to one fixed advertising dataset.
+- **Situation:** The initial requirement was to take one advertising-journey dataset, assign conversion and revenue credit to its touchpoints, and use that evidence to initialize budgets. A pipeline tailored to one provider and schema could have satisfied that immediate demonstration.
 - **Task:** I wanted to create a foundation that could eventually support different providers, campaigns, regions, and changing business requirements.
 - **Action:** I designed modular provider adapters and extensible data models so new dimensions and attribution methods could be added without rebuilding the system.
 - **Result:** The architecture supported later requirements with much less rework and turned a one-off pipeline into a foundation for broader attribution and optimization experiments.
@@ -172,7 +172,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 2 — Building a CS Community
 
-- **Situation:** I realized that helping individual students find individual opportunities would not solve the broader problem of fragmented information and weak connections within the CS community.
+- **Situation:** A small founding group had grown into a 300+ member student community, but information about courses, research, and projects still moved through fragmented personal connections. Helping one student at a time would not make that knowledge reusable at the club's new scale.
 - **Task:** I wanted to create an environment where students could continuously help one another discover resources and opportunities.
 - **Action:** I helped build a club that connected students through recurring research seminars, course guidance, project sharing, and networking.
 - **Result:** Instead of helping only a few individuals, the community became a reusable network through which many students could expand their connections and pursue new opportunities.
@@ -194,7 +194,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 2 — MTA Model Decisions
 
-- **Situation:** During the MTA project, team members sometimes proposed different data structures or modeling approaches without enough evidence to determine which was better.
+- **Situation:** The MTA system had to decide how to divide conversion and revenue credit across touchpoints in a customer's path. Team members proposed different schemas and attribution approaches—including uniform, Markov removal-effect, and path-level Shapley models—without enough evidence to determine which behavior was more defensible.
 - **Task:** I needed to help the team make decisions without relying only on personal preference.
 - **Action:** I clarified the assumptions behind each approach, implemented alternatives when practical, and compared their behavior using reproducible experiments.
 - **Result:** We could make technical decisions based on evidence while preserving useful ideas from multiple approaches.
@@ -207,7 +207,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 1 — Modular MTA Simulator
 
-- **Situation:** The MTA team needed synthetic datasets for several attribution experiments but did not have the time or resources to build a separate simulator for every provider and requirement.
+- **Situation:** Without client data, the MTA team needed synthetic customer journeys to test algorithms that distributed conversion and revenue credit among advertising touchpoints. We did not have the time or resources to build a separate simulator for every provider, path schema, and experiment.
 - **Task:** I needed to support many experiments without repeatedly rebuilding the data-generation system.
 - **Action:** I created one modular simulator with reusable interfaces and adapters that could represent different providers and additional features.
 - **Result:** The team could test multiple scenarios using the same infrastructure while reducing duplicated development and future maintenance.
@@ -229,7 +229,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 1 — MTA Team Integration
 
-- **Situation:** In the MTA project, team members were working independently and had different technical backgrounds and assumptions about how their components should connect.
+- **Situation:** Team members were separately building journey data, attribution models, and budget logic, with different technical backgrounds and assumptions about path fields, model outputs, and how conversion credit should flow into recommendations.
 - **Task:** I needed to create enough transparency and shared understanding for people to rely on one another's work.
 - **Action:** I held individual discussions to understand their needs, documented interfaces and decisions carefully, and made my own pipeline easy for others to inspect and reproduce.
 - **Result:** Team members could integrate their components more confidently, and the documentation made project knowledge accessible even when membership changed.
@@ -238,7 +238,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 2 — CS Club
 
-- **Situation:** New students often did not know whom they could approach for reliable advice about courses, projects, or research.
+- **Situation:** As the club expanded from a small founding group to more than 300 members, informal founder-to-friend communication no longer gave every new student a clear person to approach for reliable advice about courses, projects, or research.
 - **Task:** I wanted the club to become a community where students felt comfortable asking for help and sharing information.
 - **Action:** I regularly connected newer students with experienced members and organized sessions where people openly shared their experiences and available resources.
 - **Result:** Members increasingly used the community to expand their networks and pursue academic and research opportunities.
@@ -273,7 +273,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 1 — Challenging the MTA Data Process
 
-- **Situation:** In the MTA project, the existing workflow allowed each group to create its own data format and mock datasets independently.
+- **Situation:** The MTA project needed one path from synthetic customer journeys to attribution and initial budget allocation, but the existing workflow allowed every group to define its own touchpoints, conversions, revenue fields, and mock datasets independently.
 - **Task:** I believed continuing that approach would create serious integration and reproducibility problems even though changing it required additional work outside my immediate task.
 - **Action:** I raised the issue with the team, explained the downstream risks, and pushed for a shared data contract and reproducible pipeline while incorporating feedback into the final design.
 - **Result:** Once we agreed on the direction, I committed to implementing the shared infrastructure and helped the teams move forward under the common model.
@@ -282,7 +282,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 2 — Resolving Competing Technical Approaches
 
-- **Situation:** When teammates and I disagreed about implementation choices, simply choosing one person's preference risked either delaying the project or discarding a potentially useful idea.
+- **Situation:** We disagreed about concrete MTA choices: how to represent advertising paths, which attribution model should divide conversion credit, and how model outputs should feed the initial budget seed. Choosing by preference risked delaying integration or discarding a useful approach.
 - **Task:** I needed to express my technical concerns clearly while still keeping the team moving toward a shared decision.
 - **Action:** I stated my assumptions, challenged the alternatives with specific technical questions, and where feasible tested both approaches so the evidence could resolve the disagreement.
 - **Result:** After the decision was made, I supported the selected approach and focused on integrating the strongest parts into the final system.
@@ -304,7 +304,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 2 — MTA First-Week Pipeline
 
-- **Situation:** The MTA algorithm team could not properly test its attribution models because the project lacked reproducible input data.
+- **Situation:** The MTA algorithm team needed to test whether uniform, Markov removal-effect, Shapley, and learned models assigned sensible conversion and revenue credit across advertising paths, but the project had no reproducible input journeys.
 - **Task:** I needed to remove that dependency quickly so algorithm development could continue.
 - **Action:** I prioritized the essential interfaces and built the first modular data-generation pipeline within one week rather than waiting for every future requirement to be finalized.
 - **Result:** The algorithm team could immediately begin validating its models while the pipeline continued evolving to support more sophisticated requirements.
@@ -317,7 +317,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 1 — Developing MTA Team Members
 
-- **Situation:** Several MTA team members had limited experience with full-stack integration and sometimes struggled to understand how their individual work fit into the larger system.
+- **Situation:** Several team members owned isolated parts of a pipeline spanning journey simulation, attribution, model comparison, and deterministic budget seeding. With limited integration experience, they sometimes struggled to see the contracts around their component.
 - **Task:** I wanted them to become more independent contributors rather than simply taking their components and integrating everything myself.
 - **Action:** I held one-to-one conversations about their blockers, shared learning resources, explained the surrounding architecture, and documented common workflows.
 - **Result:** Team members had clearer paths for contributing independently, while future members could use the same documentation to onboard more quickly.
@@ -326,7 +326,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 2 — CS Club Community
 
-- **Situation:** New CS students often entered the university without the networks or institutional knowledge that more experienced students already had.
+- **Situation:** The club had expanded from a small founding group to more than 300 members, but new CS students still entered the university without the networks or institutional knowledge that experienced members already had.
 - **Task:** I wanted to create an environment where access to opportunities depended less on whom someone happened to know.
 - **Action:** I organized information sessions, research discussions, project sharing, and connections between incoming and experienced students.
 - **Result:** Students gained broader access to knowledge and networks, and some members used those connections to pursue research opportunities.
@@ -339,7 +339,7 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ### Example 1 — Maintaining Shared MTA Infrastructure
 
-- **Situation:** As more components of the MTA project began depending on the shared data pipeline, changes to my code could increasingly affect work across the entire team.
+- **Situation:** Journey generation, Markov and Shapley attribution, model comparison, and deterministic budget seeding increasingly depended on the same shared path contracts. A change to my pipeline could therefore alter results across the entire team.
 - **Task:** I needed to treat the pipeline as shared infrastructure rather than optimizing only for my own development speed.
 - **Action:** I introduced stable interfaces, reproducible generation, documentation, and modular adapters so future changes could be made without unexpectedly breaking downstream users.
 - **Result:** As the project expanded, the common infrastructure remained easier to extend and reduced the risks that came from increased dependency on a single pipeline.
