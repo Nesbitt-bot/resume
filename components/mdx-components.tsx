@@ -26,6 +26,39 @@ function InquiryTabs() {
   return <InquiryTabsClient inquiries={site.inquiries} />;
 }
 
+function RecentProjectTopics() {
+  const selected: Array<{ topic: string; slug: string }> = [];
+  const seen = new Set<string>();
+
+  for (const project of resume.portfolio) {
+    const candidates = [
+      ...(project.skills ?? []),
+      ...(project.topicCategory ?? []),
+      project.category,
+    ].filter((candidate): candidate is string => Boolean(candidate?.trim()));
+    const topic = candidates.find((candidate) => !seen.has(candidate.trim().toLowerCase()));
+
+    if (topic) {
+      const key = topic.trim().toLowerCase();
+      seen.add(key);
+      selected.push({ topic: topic.trim(), slug: project.slug });
+    }
+
+    if (selected.length === 3) break;
+  }
+
+  return (
+    <>
+      {selected.map(({ topic, slug }, index) => (
+        <span key={`${slug}-${topic}`}>
+          {index > 0 && (index === selected.length - 1 ? ', and ' : ', ')}
+          <strong><Link href={`/projects/${slug}/`}>{topic}</Link></strong>
+        </span>
+      ))}
+    </>
+  );
+}
+
 function FeaturedProjects() {
   return <FeaturedProjectsClient projects={resume.portfolio} />;
 }
@@ -66,6 +99,7 @@ const components: MDXComponents = {
   a: SmartLink,
   HomeHero,
   InquiryTabs,
+  RecentProjectTopics,
   FeaturedProjects,
   ResumeView,
   PortfolioExplorer,
