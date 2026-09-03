@@ -9,7 +9,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 ## 1. Customer Obsession
 
-### Example 1 — Lecture Note-Sharing Site
+Customer Obsession means starting from the person who must use the result, then working backward instead of treating implementation as the finish line. In my experience, the closest equivalent is serving learners, collaborators, and maintainers: publishing NoteNextra before the larger platform was complete, responding to a reader-reported mathematical error, and building SophiasPath around what a teammate needed to publish rather than around the backend I happened to want to build.
+
+<details className="principle-example">
+<summary>Lecture Note-Sharing Site</summary>
 
 - **Situation:** I initially planned to build a feature-rich full-stack note-sharing platform for my classmates.
 - **Task:** After talking with them, I realized what they actually needed was fast and reliable access to updated lecture notes.
@@ -18,7 +21,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/notenextra-notechondria/)
 
-### Example 2 — EV Charging Reliability Dashboard
+</details>
+
+<details className="principle-example">
+<summary>EV Charging Reliability Dashboard</summary>
 
 - **Situation:** In a 72-hour data-science project, I was asked to diagnose systematic charging failures despite having sparse instructions and no definition of “systematic.”
 - **Task:** I needed to turn the raw data into information that would actually help managers decide who should respond to each problem.
@@ -27,11 +33,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/reliability-event-detection-case-study/)
 
----
+</details>
 
 ## 2. Ownership
 
-### Example 1 — MTA Shared Data Model
+Ownership means accepting responsibility for the outcome beyond the narrow boundary of an assigned role. I have most clearly practiced it when a project lacked coordination: in the MTA Strategy Optimizer I established shared contracts without formal authority, and in Chinese Groundbreakers I continued proposing events, maintaining resources, and helping students when the club's senior leadership had less capacity.
+
+<details className="principle-example">
+<summary>MTA Shared Data Model</summary>
 
 - **Situation:** We were building a system to reconstruct advertising journeys and divide conversion and revenue credit among the campaigns, channels, and ad groups that appeared before a purchase. Because client data was unavailable, separate teams were also creating synthetic inputs and attribution components from conflicting interpretations of the path schema.
 - **Task:** Although my primary responsibility was optimization, I recognized that leaving the inconsistency unresolved would create major integration problems later.
@@ -40,7 +49,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-### Example 2 — CS Club
+</details>
+
+<details className="principle-example">
+<summary>CS Club</summary>
 
 - **Situation:** Washington University Chinese Groundbreakers grew from a small founding group into a community serving more than 300 students. At that scale, many incoming students still lacked reliable information about CS courses, research opportunities, and people they could approach for guidance.
 - **Task:** I wanted to address that gap instead of assuming individual students or the department would solve it themselves.
@@ -49,11 +61,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/washington-university-chinese-groundbreakers/)
 
----
+</details>
 
 ## 3. Invent and Simplify
 
-### Example 1 — Modular MTA Simulation Pipeline
+Invent and Simplify is not novelty for its own sake; it is finding a smaller, clearer system that removes recurring friction. My projects repeatedly move in this direction: I replaced incompatible data-generation work with one reproducible contract in the MTA project, and separated the immediately useful static NoteNextra archive from the more ambitious Notechondria platform so that complexity would not block delivery.
+
+<details className="principle-example">
+<summary>Modular MTA Simulation Pipeline</summary>
 
 - **Situation:** The MTA project needed to assign conversion and revenue credit across the sequence of advertising touchpoints preceding a purchase, then use that evidence to seed campaign and ad-group budgets. Client data was unavailable, and each team was independently producing incompatible synthetic paths and schemas.
 - **Task:** I needed to give the algorithm team a simple and reusable way to test attribution models without waiting for every upstream decision.
@@ -62,7 +77,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-### Example 2 — Simplifying the Notes Platform
+</details>
+
+<details className="principle-example">
+<summary>Simplifying the Notes Platform</summary>
 
 - **Situation:** I initially used a full-stack application to distribute lecture notes even though most classmates only needed dependable access to the content.
 - **Task:** I wanted to remove unnecessary complexity without sacrificing the value students actually cared about.
@@ -71,11 +89,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/notenextra-notechondria/)
 
----
+</details>
 
 ## 4. Bias for Action
 
-### Example 1 — 72-Hour Reliability Project
+Bias for Action means moving when delay is more expensive than a reversible mistake, while preserving a way to test and correct the decision. I demonstrated this by producing the first reproducible MTA simulation baseline in two days and by publishing NoteNextra as a useful static archive instead of waiting for the complete platform. My best version of speed is an inspectable first step, not an irreversible shortcut.
+
+<details className="principle-example">
+<summary>72-Hour Reliability Project</summary>
 
 - **Situation:** I had only 72 hours to build a reliability dashboard from sparse instructions with no agreed definition of systematic failure.
 - **Task:** I needed to make useful progress without waiting for every ambiguity to be resolved.
@@ -84,7 +105,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/reliability-event-detection-case-study/)
 
-### Example 2 — MTA Under Changing Requirements
+</details>
+
+<details className="principle-example">
+<summary>MTA Under Changing Requirements</summary>
 
 - **Situation:** The MTA project was behind schedule, client journey data was unavailable, and the data-science and algorithm teams were still changing how touchpoints, paths, conversions, and revenue should be represented.
 - **Task:** I needed to unblock model development without committing the team to assumptions that might soon become obsolete.
@@ -93,18 +117,24 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
----
+</details>
 
 ## 5. Learn and Be Curious
 
-### Example 1 — Mathematics Research
+Learn and Be Curious describes the habit of following a question beyond the knowledge already required by a role or course. My mathematical research pushed me across probability, geometry, and quantum information, while projects such as Mon3tr forced me to connect diffusion models with 3D reconstruction. I tend to learn by building enough of the surrounding system to discover where my understanding actually breaks.
+
+<details className="principle-example">
+<summary>Mathematics Research</summary>
 
 - **Situation:** In my summer mathematics research, we investigated whether a theorem motivated by quantum physics could extend to a more general mathematical setting.
 - **Task:** I needed to understand unfamiliar concepts deeply enough to determine which assumptions were essential before attempting a proof.
 - **Action:** I systematically studied the underlying definitions, tested examples computationally, and used weekly meetings with my mentor to challenge my understanding.
 - **Result:** That foundation allowed me to explore the generalized problem rigorously and eventually develop the work into my thesis.
 
-### Example 2 — Self-Taught Infrastructure
+</details>
+
+<details className="principle-example">
+<summary>Self-Taught Infrastructure</summary>
 
 - **Situation:** Since high school, I wanted to operate my own online services despite initially having little knowledge of production infrastructure.
 - **Task:** I needed to learn the technologies required to make those services reliable and maintainable.
@@ -113,11 +143,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/web-development-personal-website/)
 
----
+</details>
 
 ## 6. Hire and Develop the Best
 
-### Example 1 — Developing Students Through the CS Club
+For my experience, this principle is better understood as raising the capability of the people around me, since I have not yet owned a formal hiring process. I have led junior developers on Gray-75, helped students plan courses through Chinese Groundbreakers, and tried to make team contributions easier through documentation and shared interfaces. The evidence is strongest in mentoring and enablement, not hiring decisions.
+
+<details className="principle-example">
+<summary>Developing Students Through the CS Club</summary>
 
 - **Situation:** In a club that had expanded from a small founding group to more than 300 members, many newer CS students still lacked both professional networks and knowledge about available academic and research opportunities.
 - **Task:** I wanted the club to help students develop rather than simply organize social activities.
@@ -126,7 +159,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/washington-university-chinese-groundbreakers/)
 
-### Example 2 — Developing MTA Team Members
+</details>
+
+<details className="principle-example">
+<summary>Developing MTA Team Members</summary>
 
 - **Situation:** The MTA system had to connect synthetic journey generation, attribution models that divided conversion and revenue credit among touchpoints, and a budget-seeding module. Several members owned isolated pieces and had limited experience integrating them into one reproducible system.
 - **Task:** I wanted to help them contribute effectively while ensuring that knowledge would remain available to future team members.
@@ -135,11 +171,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
----
+</details>
 
 ## 7. Insist on the Highest Standards
 
-### Example 1 — MTA Engineering Standards
+High standards mean making correctness, reproducibility, and maintainability concrete rather than merely asking people to care more. I express this through typed schemas, validation, tests, documented contracts, and visible correction mechanisms. The MTA project and NoteNextra also taught me that standards include acknowledging limitations and repairing errors, not hiding them behind a polished presentation.
+
+<details className="principle-example">
+<summary>MTA Engineering Standards</summary>
 
 - **Situation:** The MTA project initially consisted of independently developed synthetic datasets, attribution models, and strategy code. Individual pieces ran, but their incompatible path definitions and outputs could not yet support a reproducible comparison or budget recommendation.
 - **Task:** I wanted the project to produce reproducible and dependable results rather than merely demonstrate that each individual component worked.
@@ -148,7 +187,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-### Example 2 — Reinforcement-Learning Parking Project
+</details>
+
+<details className="principle-example">
+<summary>Reinforcement-Learning Parking Project</summary>
 
 - **Situation:** In our autonomous trailer-parking project, the reinforcement-learning model initially showed acceptable metrics that could have been sufficient for the assignment.
 - **Task:** I wanted to verify that those metrics represented genuinely useful learned behavior rather than simply presenting a successful-looking result.
@@ -157,11 +199,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/attpdrl/)
 
----
+</details>
 
 ## 8. Think Big
 
-### Example 1 — Generalizing the MTA Platform
+Think Big means choosing an architecture or direction that can outlast the first deliverable while still grounding it in useful work today. My personal infrastructure grew from a website into a portable self-hosted data and service layer, while NoteNextra evolved toward Notechondria's broader idea of a personal context gateway. These projects reflect my tendency to see individual tools as parts of longer-lived systems.
+
+<details className="principle-example">
+<summary>Generalizing the MTA Platform</summary>
 
 - **Situation:** The initial requirement was to take one advertising-journey dataset, assign conversion and revenue credit to its touchpoints, and use that evidence to initialize budgets. A pipeline tailored to one provider and schema could have satisfied that immediate demonstration.
 - **Task:** I wanted to create a foundation that could eventually support different providers, campaigns, regions, and changing business requirements.
@@ -170,7 +215,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-### Example 2 — Building a CS Community
+</details>
+
+<details className="principle-example">
+<summary>Building a CS Community</summary>
 
 - **Situation:** A small founding group had grown into a 300+ member student community, but information about courses, research, and projects still moved through fragmented personal connections. Helping one student at a time would not make that knowledge reusable at the club's new scale.
 - **Task:** I wanted to create an environment where students could continuously help one another discover resources and opportunities.
@@ -179,11 +227,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/washington-university-chinese-groundbreakers/)
 
----
+</details>
 
 ## 9. Are Right, A Lot
 
-### Example 1 — EV Charging Reliability Case
+Being right a lot depends less on defending an initial intuition than on testing assumptions, examining contrary evidence, and revising the model when it fails. My strongest examples are negative results: ATTPDRL did not solve the full steering problem, and Mon3tr produced unusable geometry despite a runnable pipeline. In both cases, inspecting the failure honestly produced a better conclusion than presenting partial execution as success.
+
+<details className="principle-example">
+<summary>EV Charging Reliability Case</summary>
 
 - **Situation:** In the 72-hour charging-reliability project, there was no labeled definition of systematic failure and several reasonable ways to interpret the problem.
 - **Task:** I needed to choose a definition that would produce useful conclusions despite incomplete information.
@@ -192,7 +243,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/reliability-event-detection-case-study/)
 
-### Example 2 — MTA Model Decisions
+</details>
+
+<details className="principle-example">
+<summary>MTA Model Decisions</summary>
 
 - **Situation:** The MTA system had to decide how to divide conversion and revenue credit across touchpoints in a customer's path. Team members proposed different schemas and attribution approaches—including uniform, Markov removal-effect, and path-level Shapley models—without enough evidence to determine which behavior was more defensible.
 - **Task:** I needed to help the team make decisions without relying only on personal preference.
@@ -201,11 +255,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
----
+</details>
 
 ## 10. Frugality
 
-### Example 1 — Modular MTA Simulator
+Frugality is the discipline of extracting capability from limited resources rather than treating more infrastructure, money, or people as the default answer. My self-hosted platform relies on open-source and portable components, circtime experiments with backend-free scheduled monitoring, and several public sites use static deployment where a permanent server would add little value. Constraints often force me to make the system simpler and more transferable.
+
+<details className="principle-example">
+<summary>Modular MTA Simulator</summary>
 
 - **Situation:** Without client data, the MTA team needed synthetic customer journeys to test algorithms that distributed conversion and revenue credit among advertising touchpoints. We did not have the time or resources to build a separate simulator for every provider, path schema, and experiment.
 - **Task:** I needed to support many experiments without repeatedly rebuilding the data-generation system.
@@ -214,7 +271,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-### Example 2 — Lecture Notes Site
+</details>
+
+<details className="principle-example">
+<summary>Lecture Notes Site</summary>
 
 - **Situation:** I originally planned a full-stack application even though my classmates mainly wanted reliable access to lecture notes.
 - **Task:** I wanted to deliver the useful part of the product without spending unnecessary development effort on features they did not yet need.
@@ -223,11 +283,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/notenextra-notechondria/)
 
----
+</details>
 
 ## 11. Earn Trust
 
-### Example 1 — MTA Team Integration
+Earn Trust is built through accurate claims, visible limits, and work that other people can inspect. In my projects, that means crediting reader corrections, documenting negative experimental results, preserving confidentiality boundaries, and distinguishing a working prototype from a validated production system. I have learned that reliability and candor matter more than sounding certain, especially when collaborators depend on my interfaces or conclusions.
+
+<details className="principle-example">
+<summary>MTA Team Integration</summary>
 
 - **Situation:** Team members were separately building journey data, attribution models, and budget logic, with different technical backgrounds and assumptions about path fields, model outputs, and how conversion credit should flow into recommendations.
 - **Task:** I needed to create enough transparency and shared understanding for people to rely on one another's work.
@@ -236,7 +299,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-### Example 2 — CS Club
+</details>
+
+<details className="principle-example">
+<summary>CS Club</summary>
 
 - **Situation:** As the club expanded from a small founding group to more than 300 members, informal founder-to-friend communication no longer gave every new student a clear person to approach for reliable advice about courses, projects, or research.
 - **Task:** I wanted the club to become a community where students felt comfortable asking for help and sharing information.
@@ -245,11 +311,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/washington-university-chinese-groundbreakers/)
 
----
+</details>
 
 ## 12. Dive Deep
 
-### Example 1 — EV Charging Reliability Analysis
+Dive Deep means tracing an outcome through the underlying data, implementation, and assumptions rather than stopping at a dashboard or summary metric. The reliability case study required separating weekday demand, station history, peer behavior, and factor enrichment; my infrastructure work required understanding routing, storage, migration, and recovery together. I am most useful when I can move between the system-level picture and the exact mechanism producing it.
+
+<details className="principle-example">
+<summary>EV Charging Reliability Analysis</summary>
 
 - **Situation:** The charging dataset contained many apparent failures, but aggregate error rates alone could not distinguish isolated station problems from genuinely systematic issues.
 - **Task:** I needed to determine what was actually driving abnormal reliability rather than simply flagging stations with high failure counts.
@@ -258,7 +327,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/reliability-event-detection-case-study/)
 
-### Example 2 — Reinforcement-Learning Parking
+</details>
+
+<details className="principle-example">
+<summary>Reinforcement-Learning Parking</summary>
 
 - **Situation:** Our autonomous-parking model produced improving reward metrics that initially suggested the reinforcement-learning approach was working.
 - **Task:** I wanted to understand what behaviors the model had actually learned rather than trusting the aggregate score.
@@ -267,11 +339,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/attpdrl/)
 
----
+</details>
 
 ## 13. Have Backbone; Disagree and Commit
 
-### Example 1 — Challenging the MTA Data Process
+This principle means raising a reasoned objection when the evidence or architecture points elsewhere, then supporting the final direction once a decision is made. My experience appears in narrowing projects after failed experiments, resisting incompatible one-off implementations in favor of shared contracts, and retaining a proven production monitor while circtime remained unvalidated. I try to make disagreement specific and testable rather than personal.
+
+<details className="principle-example">
+<summary>Challenging the MTA Data Process</summary>
 
 - **Situation:** The MTA project needed one path from synthetic customer journeys to attribution and initial budget allocation, but the existing workflow allowed every group to define its own touchpoints, conversions, revenue fields, and mock datasets independently.
 - **Task:** I believed continuing that approach would create serious integration and reproducibility problems even though changing it required additional work outside my immediate task.
@@ -280,7 +355,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-### Example 2 — Resolving Competing Technical Approaches
+</details>
+
+<details className="principle-example">
+<summary>Resolving Competing Technical Approaches</summary>
 
 - **Situation:** We disagreed about concrete MTA choices: how to represent advertising paths, which attribution model should divide conversion credit, and how model outputs should feed the initial budget seed. Choosing by preference risked delaying integration or discarding a useful approach.
 - **Task:** I needed to express my technical concerns clearly while still keeping the team moving toward a shared decision.
@@ -289,11 +367,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
----
+</details>
 
 ## 14. Deliver Results
 
-### Example 1 — 72-Hour EV Reliability Dashboard
+Deliver Results means producing the outcome that matters under the actual constraints, not merely completing activity that resembles progress. My strongest examples have concrete endpoints: a deployed archive, a playable game, an integrated data contract, a daily reliability report, or a migration that can be repeated in about 30 minutes. I also distinguish delivery from success when a pipeline runs but the scientific or operational result is still inadequate.
+
+<details className="principle-example">
+<summary>72-Hour EV Reliability Dashboard</summary>
 
 - **Situation:** I received a 72-hour case study requiring a complete reliability analysis, dashboard, visualizations, and reusable detection function from an unfamiliar charging dataset.
 - **Task:** I needed to turn an ambiguous problem into a reviewable end-to-end result within the fixed deadline.
@@ -302,7 +383,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/reliability-event-detection-case-study/)
 
-### Example 2 — MTA First-Week Pipeline
+</details>
+
+<details className="principle-example">
+<summary>MTA First-Week Pipeline</summary>
 
 - **Situation:** The MTA algorithm team needed to test whether uniform, Markov removal-effect, Shapley, and learned models assigned sensible conversion and revenue credit across advertising paths, but the project had no reproducible input journeys.
 - **Task:** I needed to remove that dependency quickly so algorithm development could continue.
@@ -311,11 +395,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
----
+</details>
 
 ## 15. Strive to be Earth's Best Employer
 
-### Example 1 — Developing MTA Team Members
+I interpret this principle through the smaller teams and communities I have actually participated in: creating conditions where people can learn, contribute, and ask for help without unnecessary friction. Supporting junior developers, offering personalized course guidance, writing integration documentation, and responding constructively to corrections are modest but relevant examples. I would not claim organization-scale people leadership; my evidence is at the teammate and community level.
+
+<details className="principle-example">
+<summary>Developing MTA Team Members</summary>
 
 - **Situation:** Several team members owned isolated parts of a pipeline spanning journey simulation, attribution, model comparison, and deterministic budget seeding. With limited integration experience, they sometimes struggled to see the contracts around their component.
 - **Task:** I wanted them to become more independent contributors rather than simply taking their components and integrating everything myself.
@@ -324,7 +411,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-### Example 2 — CS Club Community
+</details>
+
+<details className="principle-example">
+<summary>CS Club Community</summary>
 
 - **Situation:** The club had expanded from a small founding group to more than 300 members, but new CS students still entered the university without the networks or institutional knowledge that experienced members already had.
 - **Task:** I wanted to create an environment where access to opportunities depended less on whom someone happened to know.
@@ -333,11 +423,14 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/washington-university-chinese-groundbreakers/)
 
----
+</details>
 
 ## 16. Success and Scale Bring Broad Responsibility
 
-### Example 1 — Maintaining Shared MTA Infrastructure
+This principle recognizes that a system's obligations expand as more people, data, or infrastructure depend on it. My work reflects this through privacy boundaries in the reliability study, correction and attribution mechanisms in public educational material, and security, backup, and migration planning in personal infrastructure. Even at small scale, publishing or operating a system creates responsibilities that do not exist in a private prototype.
+
+<details className="principle-example">
+<summary>Maintaining Shared MTA Infrastructure</summary>
 
 - **Situation:** Journey generation, Markov and Shapley attribution, model comparison, and deterministic budget seeding increasingly depended on the same shared path contracts. A change to my pipeline could therefore alter results across the entire team.
 - **Task:** I needed to treat the pipeline as shared infrastructure rather than optimizing only for my own development speed.
@@ -346,7 +439,10 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 
 [Read the project](/projects/mta-strategy-optimizer/)
 
-### Example 2 — Long-Term Self-Hosted Infrastructure
+</details>
+
+<details className="principle-example">
+<summary>Long-Term Self-Hosted Infrastructure</summary>
 
 - **Situation:** What began as personal experimentation with web services gradually grew into infrastructure that I depended on for multiple applications and information-sharing workflows.
 - **Task:** As its scope increased, I needed to consider reliability, maintainability, security, and the consequences of failures rather than treating it as a hobby deployment.
@@ -354,3 +450,5 @@ This page organizes all sixteen Amazon Leadership Principles into a focused inte
 - **Result:** I learned to evaluate infrastructure not only by whether I could build it, but by whether I could responsibly maintain it as its usage and dependencies grew.
 
 [Read the project](/projects/web-development-personal-website/)
+
+</details>
